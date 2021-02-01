@@ -1,4 +1,4 @@
-# 3강 - Machine learning basics
+# 3강 - basics of python project
 
 ## 3. Group by
 
