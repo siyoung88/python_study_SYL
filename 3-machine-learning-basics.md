@@ -2,19 +2,25 @@
 
 ## 0. Updating Github repository
 
-1. 바탕화면으로 이동 cd desktop 
-2. 클론된 라페지토리로 이동 cd python\__study\_SYL_
-3. _add 하기 git add ._
-4. _commit 하기 git commit -m "initial commit"_
-5. _push 하기_ git push origin HEAD:master
-6. _ID, password 입력 후 종료_ 
+1. 바탕화면으로 이동 `cd desktop` 
+2. 클론된 라페지토리로 이동 `cd python_study_SYL`
+3. `git status` 를 통해서 nothing to commit, working tree clean 메세지 확인
+4. working tree 가 clean하지 않다면, `git pull`
+5. branch해서 다른 branch들도 확인하기, Figure 1을 참조한.  4-1 `git branch` 를 통해 어떤 branch들이 있는지 확인 가능 4-2 `git branch master`를 통해 master branch를 생성 4-3 `git branch` 를 통해 master branch가 생겼는지 확인 4-4 `git checkout master` 를 통해 master branch로 이동  4-5 local git repository folder를 오픈해서 자료가 없는지 확인 4-6 `git branch --set-upstream-to=origin/master master` 를 통해 origin \(remote\)저장소와 local의 master 브랜치를 연결 4-7 `git status` 를 통해 새로운 브랜치인 것을 확인 
+6. 진행한 과제의 assignment1 폴더를 local git repository folder 다운로드 또는 이동/복사
+7. add 하기 __`git add .`
+8. commit 하기 __`git commit -m "initial commit"`
+9. push 하기 __`git push origin HEAD:master`
+10. ID, password 입력 후 종료
 
-또는 해당 과정을 github web interface를 통해  
+![Figure 1. version management diagram with Git](.gitbook/assets/git_image.png)
+
+또는 해당 과정을 Github web interface를 통해  
 1. add file 클릭   
 2. upload file 클릭  
-3. file drop down 후 commit changes 클릭  
-4. make pull request  
-5. merge pull request  
+3. file drop-down 후 commit changes 클릭  
+4. `make pull request`  
+5. `merge pull request`  
 과정을 통해서도 손쉽게 업로드 가능.
 
 ## 1. Commentary on the previous assignment

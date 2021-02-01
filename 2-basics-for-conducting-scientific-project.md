@@ -97,12 +97,12 @@ original array index \[0,1\] value after change: 50
 `[,]` example\) ,   
 `abc a*`example\) abc a, abc aa,   
   
-abc aaa \[ \(x\)  
-abc aaa . \(x\)  
-\[\[\] \(o\)  
-\[.\] \(o\)  
+`abc aaa [` 와 같은 표현 방식은 '\['가 meta character이므로 유효하지 않습니다.\(x\)  
+`abc aaa .` 와 같은 표현 방식은 '.'가 meta character이므로 유효하지 않습니다.\(x\)  
+`[[]` \(o\)  
+`[.]` \(o\)  
 \[010.5113.6365\]를 express 하려면,  
-\[\[\]\d\d\d\[.\]\d\d\d\d\[.\]\d\d\d\d\[\]\] \[010.5113.6365\]
+`[[]\d\d\d[.]\d\d\d\d[.]\d\d\d\d[]]` \[010.5113.6365\]
 
 ```python
 [ab] .*[[][.]+ [\d]{1,3}
