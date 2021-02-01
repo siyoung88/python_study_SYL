@@ -1,6 +1,6 @@
 # 2강 - basics for conducting project
 
-## 0. 왜 python인가 ?
+## 0. 왜 Python인가 ?
 
 web of science의 논문 crawling 과제를 기억하시나요?  
 업무 분배 -&gt; 0 부터 65000 까지의 index를 인원수에 맞게 분할했음.  
@@ -80,30 +80,22 @@ original array index \[0,1\] value after change: 50
 * 0개 이상 반복
 * 하나 이상 반복
 
-a\* , a, aa, aaa  
-a+ a, aa, aaa  
-\[a\]  
-a,  
-\[a\]\*  
-, a , aa, aaa, aaaa  
-\[ab\] A,b  
-\[ab\]\* , a , b, ab, ababa, abababab, ,bbbbbbb  
-\[a-z\] A,b,c,d,e,f,  
-\[a-z\]+ A,b,c,d, apple, banana
-
-  
-\[A-Z\]\[a-z\]+ 고유명사 ex\) Apple, Siyoung, Haejun
-
-  
-. 모든 문자가 가능합니다.  
-.\*  
-, 1 ,2 ,a ,b ,c ,p , be ambitious, Most muscular.  
-\[.\] ex\)  .  
-\[.\]+ ex\)  ., .., ...   
-\[.\]\* ex\) , ., ... , .....  
-\[,\],.  
-abc a\*  
-ex\) abc a, abc aa,   
+`a*`  example\) a, aa, aaa  
+`a+` example\) a, aa, aaa  
+`[a]` example\) a  
+`[a]*` example\) a , aa, aaa, aaaa  
+`[ab]` example\) a,b  
+`[ab]*` example\) a , b, ab, ababa, abababab, ,bbbbbbb  
+`[a-z]` example\) a,b,c,d,e,f,  
+`[a-z]+` example\) a,b,c,d, apple, banana  
+`[A-Z][a-z]+` 고유명사 ex\) Apple, Siyoung, Haejun  
+`.` : newlines 제외 모든 문자가 가능합니다.  
+`.*`example\) 1 ,2 ,a ,b ,c ,p , be ambitious, Most muscular.  
+`[.]` example\)  .  
+`[.]+` example\)  ., .., ...   
+`[.]*` example\) , ., ... , .....  
+`[,]` example\) ,   
+`abc a*`example\) abc a, abc aa,   
   
 abc aaa \[ \(x\)  
 abc aaa . \(x\)  
