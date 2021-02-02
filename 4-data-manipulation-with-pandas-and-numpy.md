@@ -33,12 +33,73 @@ df.head()
 | 3 | 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
 | 4 | 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
 
+index\_col=0 옵션을 통해 인덱스를 지울 수도 있습니다.
+
 ```python
 df = pd.read_csv('datasets/Admission_Predict.csv', index_col=0)
 df.head()
 ```
 
 | Serial No. | GRE Score | TOEFL Score | University Rating | SOP | LOR | CGPA | Research | Chance to Admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+Rename을 통해 칼럼들의 이름을 바꾸는 것도 가능합니다. 
+
+```python
+new_df=df.rename(columns={'GRE Score':'GRE Score', 'TOEFL Score':'TOEFL Score',
+                   'University Rating':'University Rating', 
+                   'SOP': 'Statement of Purpose','LOR': 'Letter of Recommendation',
+                   'CGPA':'CGPA', 'Research':'Research',
+                   'Chance of Admit':'Chance of Admit'})
+new_df.head()
+```
+
+|  Serial No. | GRE Score | TOEFL Score | University Rating | Statement of Purpose | LOR | CGPA | Research | Chance of Admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+하지만, 안바뀐게 있지요? 이런 경우는 기존 csv파일의 칼럼 이름이 '깔끔하지' 않기 때문입니다. 주변에 인덴트 같은 것이 붙어 있을 수 있지요. 이것들을 `str.strip` 을 통해 벗겨줄 수 있습니다.
+
+```python
+new_df=new_df.rename(mapper=str.strip, axis='columns')
+# Let's take a look at results
+new_df.head()
+```
+
+|  Serial  No. | GRE Score | TOEFL Score | University Rating | Statement of Purpose | Letter of Recommendation | CGPA | Research | Chance of Admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+이렇게 하면 원하는 이름으로 '깔끔하게' 바꿀 수 있습니다.   
+또한, `df.columns`을 통해 column들의 인덱스 리스트를 불러올 수 있는데요. \(리스트로 형변환은 해줘야 합니다.\)
+
+```python
+# As an example, lets change all of the column names to lower case. First we need to get our list
+cols = list(df.columns)
+# Then a little list comprehenshion
+cols = [x.lower().strip() for x in cols]
+# Then we just overwrite what is already in the .columns attribute
+df.columns=cols
+# And take a look at our results
+df.head()
+```
+
+
+
+|  gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |  |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
 | 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
