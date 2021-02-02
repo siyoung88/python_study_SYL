@@ -84,7 +84,7 @@ new_df.head()
 | 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
 
 이렇게 하면 원하는 이름으로 '깔끔하게' 바꿀 수 있습니다.   
-또한, `df.columns`을 통해 column들의 인덱스 리스트를 불러올 수 있는데요. \(리스트로 형변환은 해줘야 합니다.\)
+또한, `df.columns`을 통해 column들의 애트리뷰트 리스트를 불러올 수 있는데요. \(리스트로 형변환은 해줘야 합니다.\)
 
 ```python
 # As an example, lets change all of the column names to lower case. First we need to get our list
@@ -97,15 +97,15 @@ df.columns=cols
 df.head()
 ```
 
-
-
-|  gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |  |
+|  Serial No. | gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
 | 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
 | 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
 | 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
 | 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+인덱스 칼럼을 제외한 모든 칼럼의 애트리뷰트가 소문자로 변경되었습니다.
 
 6. Querying a DataFrame
 
