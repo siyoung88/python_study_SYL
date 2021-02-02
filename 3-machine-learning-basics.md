@@ -50,14 +50,14 @@ import re
 def logs():
     with open("assets/logdata.txt", "r") as file:
         logdata = file.read()
-    y = logdata.splitlines()
+    y = logdata.splitlines() #불러온 데이터의 줄 구분
     #print(y[0])
-    name_list = list()
-    dictionary_iter = dict()
-    #for i in range(len(y)):
-    for i in range(2):
-        dictionary_iter['host'] = str(re.findall('.*[.][\d]* -',y[i]))
-        dictionary_iter['host'] = dictionary_iter['host'][2:-4]
+    name_list = list() #리스트 선언
+    dictionary_iter = dict() #딕셔너리 선언
+    #for i in range(len(y)): #y의 줄 수 만큼 반복
+    for i in range(2): #몇번 반복할지
+        dictionary_iter['host'] = str(re.findall('.*[.][\d]* -',y[i])) #찾아서
+        dictionary_iter['host'] = dictionary_iter['host'][2:-4] #잘라내
         #print(dictionary_iter['host'])
         dictionary_iter['user_name'] = str(re.findall('- [\w]* [[]',y[i]))
         if len(dictionary_iter['user_name']) == 2 :
@@ -93,11 +93,11 @@ def logs():
     logs = []
     pattern = """
     (?P<host>\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})
-    (\s\-\s)
+    (\s\-\s) #필요없는 곳
     (?P<user_name>\w+|-)
-    (\s\[)
+    (\s\[) #필요없는 곳
     (?P<time>\d{1,2}\/\w+\/\d{2,4}:\d{1,2}:\d{1,2}:\d{1,2}\s-\d{1,4})
-    (\]\s")
+    (\]\s") #필요없는 
     (?P<request>\w+\s[\/\w\-\+\S]+\s\w+\/\d{1}.\d{1})
     """
     
