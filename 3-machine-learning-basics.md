@@ -135,7 +135,86 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 %%timeit -n 100
 ```
 
-## 2. Comparison and Logical operators
+## 2. Bitwise and Logical operators
+
+1. Bitwise Operators a = 60, b = 13 이라 하면, 이진법으로 나타냈을 때 a = 0011 1100, b = 0000 1101 이다.
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">&#xC5F0;&#xC0B0;&#xC790;</th>
+      <th style="text-align:left">&#xC124;&#xBA85;</th>
+      <th style="text-align:left">&#xC608;&#xC2DC;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left">&amp;</td>
+      <td style="text-align:left">AND &#xC5F0;&#xC0B0;&#xC73C;&#xB85C;, &#xB458; &#xB2E4; &#xCC38;(1)&#xC77C;&#xB54C;&#xB9CC;
+        1&#xC774;&#xB2E4;.</td>
+      <td style="text-align:left">
+        <p><code>(a &amp; b) = 12</code> -&gt;</p>
+        <p>0000 1100</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">|</td>
+      <td style="text-align:left">OR &#xC5F0;&#xC0B0;&#xC73C;&#xB85C;, &#xB458; &#xC911; &#xD558;&#xB098;&#xB9CC;
+        &#xCC38;(1)&#xC774;&#xC5B4;&#xB3C4; 1&#xC774;&#xB2E4;.</td>
+      <td style="text-align:left">
+        <p><code>(a | b) = 61</code> -&gt;</p>
+        <p>0011 1101</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">^</td>
+      <td style="text-align:left">XOR &#xC5F0;&#xC0B0;&#xC73C;&#xB85C;, &#xB458; &#xC911; &#xD558;&#xB098;&#xB9CC;
+        &#xCC38;&#xC77C; &#xB54C; 1&#xC774;&#xB2E4;.</td>
+      <td style="text-align:left">
+        <p><code>(a ^ b) = 49</code> -&gt;</p>
+        <p>0011 0001</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">~</td>
+      <td style="text-align:left">&#xBCF4;&#xC218;&#xB97C; &#xCDE8;&#xD55C;&#xB2E4;.</td>
+      <td style="text-align:left">
+        <p><code>(~a) = -61</code> -&gt;</p>
+        <p>1100 0011</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&lt;&lt;</td>
+      <td style="text-align:left">&#xC9C0;&#xC815;&#xD558;&#xB294; &#xBE44;&#xD2B8; &#xC218;&#xB9CC;&#xD07C;
+        &#xC67C;&#xCABD;&#xC73C;&#xB85C; &#xBE44;&#xD2B8; &#xC2DC;&#xD504;&#xD2B8;</td>
+      <td
+      style="text-align:left">
+        <p><code>a &lt;&lt; 2 = 240</code> -&gt;</p>
+        <p>1111 0000</p>
+        </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">&gt;&gt;</td>
+      <td style="text-align:left">&#xC9C0;&#xC815;&#xD558;&#xB294; &#xBE44;&#xD2B8; &#xC218;&#xB9CC;&#xD07C;
+        &#xC624;&#xB978;&#xCABD;&#xC73C;&#xB85C; &#xBE44;&#xD2B8; &#xC2DC;&#xD504;&#xD2B8;</td>
+      <td
+      style="text-align:left">
+        <p><code>a &gt;&gt; 2 = 15</code> -&gt;</p>
+        <p>0000 1111</p>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+2. Logical Operators   
+기존 언어들에서는 and는 &&이고 or는 \|\|이다. python에서는 and와 or를 써서 비트연산자와 시각적인 구분을 둔다.  
+논리연산자에서는 a와 b를 True, False의 boolean으로 봤을 때 
+
+| 연산 | 설 | 예시 |
+| :--- | :--- | :--- |
+| and | 둘다 참일때 참\(True\) | \(a and b\) = False |
+| or | 둘 중 하나만 참이어도 참\(True\) | \(a or b\) = True |
+| not | 논리 반전 | not\(a and b\) = True |
 
 ## 3. Relational Database
 
