@@ -1,5 +1,25 @@
 # 3강 - basics of python project
 
+## 0. Schedule
+
+~~Jan 26th, 27th~~   
+Introduction week1 + assignment 1 due to Feb 2nd  
+~~Feb 2nd~~,  3rd   
+Introduction week2 + assignment 2 due to Feb 9th  
+Feb 9th, 10th Introduction to Python  
+Introduction week4 + assignment 4 due to Feb 16th  
+Feb 16th, 17th Machine Learning  
+Machine Learning week 1 + assignment 1 due to Feb 23th  
+Feb 23th, 24th Text Mining  
+Text Mining week 1 + assignment 1 there's no due date
+
+3 python Introductory courses + 2 appliances \(each from machine learning and text mining\)   
+패스트 캠퍼스 강의 16강
+
+과제: 매주 화요일까지 해당 week의 contents 수강 및 assignment push   
+수업 내용: 화요일, 강의에 대한 개념 보조설명  
+수요일, 과제 진행을 위한 상세설명 및 과제 review
+
 ## 0. Updating Github repository
 
 1. 바탕화면으로 이동 `cd desktop` 
