@@ -236,6 +236,8 @@ df[df["gre score"]>320].head()
 
 7. Indexing Dataframes
 
+Dual Indexing
+
 8. Missing Values
 
 9. Example: Manipulating DataFrame 
