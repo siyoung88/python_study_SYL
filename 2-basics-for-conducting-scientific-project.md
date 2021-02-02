@@ -1,6 +1,6 @@
 # 2강 - basics for conducting project
 
-## 0. 왜 Python인가 ?
+## 0. 왜 Python인가?
 
 web of science의 논문 crawling 과제를 기억하시나요?  
 업무 분배 -&gt; 0 부터 65000 까지의 index를 인원수에 맞게 분할했음.  
@@ -147,7 +147,6 @@ class Korea(Country):
 '대한민국'
 ```
 
-  
 functional programming 
 
 ```python

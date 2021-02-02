@@ -92,7 +92,7 @@ def logs():
 2. ?P is an extension to basic regex.
 3. \(\) is for grouping.
 4. &lt;&gt; indicates keys from dictionaries.
-5. `VERBOSE`option deletes whitespace and enables commentary.
+5. `VERBOSE`option deletes whitespace and enables commentary. 5-1 But then, how do we express 'whitespace'? 5-2 it can be expressed as \s
 6. `finditer` enables iteration.
 7. `groupdict` returns a new dictionary every time.
 
@@ -106,7 +106,21 @@ Out[21]: 3075473588L
 
 ## 1. Feature of Jupyter Notebook
 
-magic command 
+magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고 있습니다. IPython은 Python + Shell의 사용성을 지향한 소프트웨어로서, Shell의 명령어를 Python에서 직접 활용할 수 있도록 합니다.   
+따라서, 이러한 명령을 기존의 Python 언어를 사용하는 타 IDE인 Pycharm과 같은 프로그램에서는 사용할 수 없습니다.  
+예를 들면, stata 소프트웨어 자체도 C언어로 짜여졌습니다. 다만, 그 안에서 사용하는 자체적인 규칙의 방향성이 다르고 우리는 이를 새로운 언어처럼 생각하고 있는 것이지요.   
+반면에, R의 경우에는 그 자체로 Python과 C에 상응하는 '프로그래밍 언어'입니다.
 
-## 3. Relational Database 
+```python
+%%timeit -n 100
+```
+
+## 2. Comparison and Logical operators
+
+## 3. Relational Database
+
+![Figure 2. &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; \(TCPschool.com &#xCD9C;&#xCC98;\)](.gitbook/assets/img_mysql_table.png)
+
+  
+
 
