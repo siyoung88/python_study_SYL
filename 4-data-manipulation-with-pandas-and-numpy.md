@@ -1,5 +1,61 @@
 # 4강 - data manipulation with pandas and numpy
 
+## 0. Course review
+
+1. Introduction to Pandas
+2. The Series Data Structure
+3. Querying a Series
+4. DataFrame Data Structure
+
+
+
+5. DataFrame Indexing and Loading
+
+csv 파일과 같이 comma로 구분되어있는 파일은 일단 불러오면 첫 줄에 column의 이름들이 표기되고 아래 자료들이 보입니다.  
+pandas module을 통해서 가독성이 좋게 불러올 수 있습니다.   
+head\(\) 는 상위 5개만 표기합니다. 
+
+```python
+import pandas as pd
+
+# Pandas mades it easy to turn a CSV into a dataframe, we just call read_csv()
+df = pd.read_csv('datasets/Admission_Predict.csv')
+
+# And let's look at the first few rows
+df.head()
+```
+
+| Index | Serial No. | GRE Score | TOEFL Score | University Rating | SOP | LOR | CGPA | Research | Chance to Admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 0 | 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 1 | 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 2 | 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 3 | 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 4 | 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+```python
+df = pd.read_csv('datasets/Admission_Predict.csv', index_col=0)
+df.head()
+```
+
+| Serial No. | GRE Score | TOEFL Score | University Rating | SOP | LOR | CGPA | Research | Chance to Admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
+
+6. Querying a DataFrame
+
+7. Indexing Dataframes
+
+8. Missing Values
+
+9. Example: Manipulating DataFrame 
+
+## 1. Assignment Guidance
+
 ## 3. Group by
 
 
