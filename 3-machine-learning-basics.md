@@ -29,7 +29,7 @@ Text Mining week 1 + assignment 1 there's no due date
 5. branch해서 다른 branch들도 확인하기, Figure 1을 참조한.  4-1 `git branch` 를 통해 어떤 branch들이 있는지 확인 가능 4-2 `git branch master`를 통해 master branch를 생성 4-3 `git branch` 를 통해 master branch가 생겼는지 확인 4-4 `git checkout master` 를 통해 master branch로 이동  4-5 local git repository folder를 오픈해서 자료가 없는지 확인 4-6 `git branch --set-upstream-to=origin/master master` 를 통해 origin \(remote\)저장소와 local의 master 브랜치를 연결 4-7 `git status` 를 통해 새로운 브랜치인 것을 확인 
 6. 진행한 과제의 assignment1 폴더를 local git repository folder 다운로드 또는 이동/복사
 7. add 하기 __`git add .`
-8. commit 하기 __`git commit -m "initial commit"`
+8. commit 하기 __`git commit -m "week1 commit"`
 9. push 하기 __`git push origin HEAD:master`
 10. ID, password 입력 후 종료
 
