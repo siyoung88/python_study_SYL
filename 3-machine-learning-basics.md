@@ -54,8 +54,8 @@ def logs():
     #print(y[0])
     name_list = list() #리스트 선언
     dictionary_iter = dict() #딕셔너리 선언
-    #for i in range(len(y)): #y의 줄 수 만큼 반복
-    for i in range(2): #몇번 반복할지
+    for i in range(len(y)): #y의 줄 수 만큼 반복
+    #for i in range(2): #몇번 반복할지
         dictionary_iter['host'] = str(re.findall('.*[.][\d]* -',y[i])) #찾아서
         dictionary_iter['host'] = dictionary_iter['host'][2:-4] #잘라내
         #print(dictionary_iter['host'])
@@ -71,7 +71,7 @@ def logs():
         dictionary_iter['request'] = str(re.findall('["].*["]',y[i]))
         dictionary_iter['request'] = dictionary_iter['request'][3:-3]
         #print(dictionary_iter['request'])
-        name_list.append(dictionary_iter)
+        name_list.append(dictionary_iter.copy())
         name_list.append(i) 
     
     print(name_list)
@@ -80,7 +80,7 @@ def logs():
     raise NotImplementedError()
 ```
 
-caution : `dictionary` is mutable  
+caution : `dictionary` is mutable == call by reference  
 we should use `.copy()` to return new dictionaries
 
 ```python
@@ -137,7 +137,7 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 
 ## 2. Bitwise and Logical operators
 
-1. Bitwise Operators a = 60, b = 13 이라 하면, 이진법으로 나타냈을 때 a = 0011 1100, b = 0000 1101 이다.
+1. Bitwise Operators a = 60, b = 13 이라 하면, 이진법으로 나타냈을 때 a = 0011 1100, b = 0000 1101 이다. 1 2 4 8 16 32 64 128  32+16+8+4 = 60
 
 <table>
   <thead>
