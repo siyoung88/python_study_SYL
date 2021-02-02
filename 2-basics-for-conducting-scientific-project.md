@@ -1,6 +1,6 @@
 # 2강 - basics for conducting project
 
-## 0. 왜 Python인가 ?
+## 0. 왜 Python인가?
 
 web of science의 논문 crawling 과제를 기억하시나요?  
 업무 분배 -&gt; 0 부터 65000 까지의 index를 인원수에 맞게 분할했음.  
@@ -97,12 +97,12 @@ original array index \[0,1\] value after change: 50
 `[,]` example\) ,   
 `abc a*`example\) abc a, abc aa,   
   
-abc aaa \[ \(x\)  
-abc aaa . \(x\)  
-\[\[\] \(o\)  
-\[.\] \(o\)  
+`abc aaa [` 와 같은 표현 방식은 '\['가 meta character이므로 유효하지 않습니다.\(x\)  
+`abc aaa .` 와 같은 표현 방식은 '.'가 meta character이므로 유효하지 않습니다.\(x\)  
+`[[]` \(o\)  
+`[.]` \(o\)  
 \[010.5113.6365\]를 express 하려면,  
-\[\[\]\d\d\d\[.\]\d\d\d\d\[.\]\d\d\d\d\[\]\] \[010.5113.6365\]
+`[[]\d\d\d[.]\d\d\d\d[.]\d\d\d\d[]]` \[010.5113.6365\]
 
 ```python
 [ab] .*[[][.]+ [\d]{1,3}
@@ -147,7 +147,6 @@ class Korea(Country):
 '대한민국'
 ```
 
-  
 functional programming 
 
 ```python
