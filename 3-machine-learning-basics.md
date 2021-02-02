@@ -220,6 +220,6 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 
 ![Figure 2. &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; \(TCPschool.com &#xCD9C;&#xCC98;\)](.gitbook/assets/img_mysql_table.png)
 
-행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법.   
+행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법. 조건에 따른 검색 방법  
 
 
