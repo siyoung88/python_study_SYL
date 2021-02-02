@@ -7,8 +7,6 @@
 3. Querying a Series
 4. DataFrame Data Structure
 
-
-
 5. DataFrame Indexing and Loading
 
 csv 파일과 같이 comma로 구분되어있는 파일은 일단 불러오면 첫 줄에 column의 이름들이 표기되고 아래 자료들이 보입니다.  
@@ -108,6 +106,123 @@ df.head()
 인덱스 칼럼을 제외한 모든 칼럼의 애트리뷰트가 소문자로 변경되었습니다.
 
 6. Querying a DataFrame
+
+Boolean masking이 나옵니다. masking이란? 
+
+![Picture 1. &#xC774;&#xBBF8;&#xC9C0; &#xBE44;&#xD2B8; &#xB9C8;&#xC2A4;&#xD0B9; \(&#xCD9C;&#xCC98;: wikipedia\)](.gitbook/assets/sprite_rendering_by_binary_image_mask.png)
+
+ 기존의 비트연산을 이용해서 원하는 데이터를 masking할 수 있다. \(비트 마스킹\)  
+1010 1001 & 0000 0000 ? 지우기  
+0000 0000 \| 1001 0010 ? 그리기
+
+```python
+    10010101   10100101
+ OR 11110000   11110000
+  = 11110101   11110101
+  
+    10010101   10100101
+AND 00001111   00001111
+  = 00000101   00000101
+```
+
+브로드캐스팅이 나옵니다. broadcasting 이란?  
+어떠한 산술 연산\(arithmetic operation\)이 행렬 의 차원\(shape\)에 따라 처리되는 방법
+
+```python
+admit_mask=df['chance of admit'] > 0.7
+admit_mask
+```
+
+```python
+Serial No.
+1       True
+2       True
+3       True
+4       True
+5      False
+       ...  
+396     True
+397     True
+398     True
+399    False
+400     True
+Name: chance of admit, Length: 400, dtype: bool
+```
+
+그러면 이렇게 마스킹 한 데이터를 가지고 컨디션에 맞게 `df.where`를 통해서 뽑아볼 수 있습니다. 
+
+```python
+df.where(admit_mask).head()
+```
+
+|  Serial No. | gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337.0 | 118.0 | 4.0 | 4.5 | 4.5 | 9.65 | 1.0 | 0.92 |
+| 2 | 324.0 | 107.0 | 4.0 | 4.0 | 4.5 | 8.87 | 1.0 | 0.76 |
+| 3 | 316.0 | 104.0 | 3.0 | 3.0 | 3.5 | 8.00 | 1.0 | 0.72 |
+| 4 | 322.0 | 110.0 | 3.0 | 3.5 | 2.5 | 8.67 | 1.0 | 0.80 |
+| 5 | NaN | NaN | NaN | NaN | NaN | NaN | NaN | NaN |
+
+하지만 Not a number가 너무 많죠. 이런 row는 `dropna()` 할 수 있습니다.
+
+```python
+df.where(admit_mask).dropna().head()
+```
+
+|  Serial No. | gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337.0 | 118.0 | 4.0 | 4.5 | 4.5 | 9.65 | 1.0 | 0.92 |
+| 2 | 324.0 | 107.0 | 4.0 | 4.0 | 4.5 | 8.87 | 1.0 | 0.76 |
+| 3 | 316.0 | 104.0 | 3.0 | 3.0 | 3.5 | 8.00 | 1.0 | 0.72 |
+| 4 | 322.0 | 110.0 | 3.0 | 3.5 | 2.5 | 8.67 | 1.0 | 0.80 |
+| 6 | 330.0 | 115.0 | 5.0 | 4.5 | 3.0 | 9.34 | 1.0 | 0.90 |
+
+이 두가지를 한 번에 할 수 도 있는데요. 이게 4강의 핵심 내용입니다.  
+지난번에 오버로딩에 관한 내용을 배웠죠? 오버로딩이란, 같은 이름의 메소드임에도 파라미터의 형식에따라 다르게 작동하는 메소드들을 가르키는데요. 이 기능을 이용해서 다음과 같은 문법을 통해 pandas는 아래와 같은 기능을 구현해 놓았습니다. 
+
+```python
+df[df['chance of admit'] > 0.7].head()
+```
+
+|  Serial No. | gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 3 | 316 | 104 | 3 | 3.0 | 3.5 | 8.00 | 1 | 0.72 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 6 | 330 | 115 | 5 | 4.5 | 3.0 | 9.34 | 1 | 0.90 |
+
+```python
+# Or you can send it a list of columns as strings
+df[["gre score","toefl score"]].head()
+```
+
+애트리뷰트를 넣으면 
+
+|  Serial No. | gre score | toefl score |
+| :--- | :--- | :--- |
+| 1 | 337 | 118 |
+| 2 | 324 | 107 |
+| 3 | 316 | 104 |
+| 4 | 322 | 110 |
+| 5 | 314 | 103 |
+
+해당 column만 뽑아낼 수 도 있고.   
+boolean mask를 넣으면
+
+```python
+df[df["gre score"]>320].head()
+```
+
+| Serial No. | gre score | toefl score | university rating | sop | lor | cgpa | research | chance of admit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
+| 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
+| 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
+| 6 | 330 | 115 | 5 | 4.5 | 3.0 | 9.34 | 1 | 0.90 |
+| 7 | 321 | 109 | 3 | 3.0 | 4.0 | 8.20 | 1 | 0.75 |
+
+해당하는 row만 뽑아 낼 수도 있습니다. 난 그런데 이런 기능들이 달갑진 않더라..
 
 7. Indexing Dataframes
 
