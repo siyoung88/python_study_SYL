@@ -1,6 +1,19 @@
 # 4강 - data manipulation with pandas and numpy
 
-## 0. Course review
+## 0. Feedback and Schedule
+
+~~Jan 26th, 27th~~   
+Introduction week1 + assignment 1 due to Feb 2nd  
+~~Feb 2nd,  3rd~~   
+Introduction week2 + assignment 2 due to Feb 9th  
+Feb 9th, 10th Machine Learning  
+Machine Learning week1 + assignment 1 due to Feb 16th  
+Feb 16th, 17th Text Mining  
+Machine Learning week 1 + assignment 1 due to Feb 24th  
+Feb 23th, 24th Text Mining  
+Text Mining week 1 + there's no assignment
+
+## 1. Course review
 
 1. Introduction to Pandas
 2. The Series Data Structure
