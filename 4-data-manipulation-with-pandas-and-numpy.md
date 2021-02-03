@@ -74,7 +74,7 @@ new_df=df.rename(columns={'GRE Score':'GRE Score', 'TOEFL Score':'TOEFL Score',
 new_df.head()
 ```
 
-|  Serial No. | GRE Score | TOEFL Score | University Rating | Statement of Purpose | LOR | CGPA | Research | Chance of Admit |
+|  Serial No. | GRE Score | TOEFL Score | University Rating  | Statement of Purpose | LOR   | CGPA | Research | Chance of Admit |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | 337 | 118 | 4 | 4.5 | 4.5 | 9.65 | 1 | 0.92 |
 | 2 | 324 | 107 | 4 | 4.0 | 4.5 | 8.87 | 1 | 0.76 |
@@ -128,22 +128,27 @@ Boolean masking이 나옵니다. masking이란?
 
 ![Picture 1. &#xC774;&#xBBF8;&#xC9C0; &#xBE44;&#xD2B8; &#xB9C8;&#xC2A4;&#xD0B9; \(&#xCD9C;&#xCC98;: wikipedia\)](.gitbook/assets/sprite_rendering_by_binary_image_mask.png)
 
- 기존의 비트연산을 이용해서 원하는 데이터를 masking할 수 있다. \(비트 마스킹\)  
-1010 1001 & 0000 0000 ? 지우기  
-0000 0000 \| 1001 0010 ? 그리기
+ 기존의 비트연산을 이용해서 원하는 데이터를 masking할 수 있다. \(비트 마스킹\)
+
+212.244.196.202. & 000.000.000.000  
+1010 1001 & 0000 0000 ? 지우기 0000 0000  
+000.000.000.000 \| 214.223.56.212   
+0000 0000 \| 1001 0010 ? 그리기 1001 0010
 
 ```python
     10010101   10100101
- OR 11110000   11110000
+ |  11110000   11110000
   = 11110101   11110101
   
     10010101   10100101
-AND 00001111   00001111
+ &  00001111   00001111
   = 00000101   00000101
 ```
 
 브로드캐스팅이 나옵니다. broadcasting 이란?  
-어떠한 산술 연산\(arithmetic operation\)이 행렬 의 차원\(shape\)에 따라 처리되는 방법
+어떠한 산술 연산\(arithmetic operation\)이 행렬 의 차원\(shape\)에 따라 처리되는 방법  
++,-,\*,/   
+\(1,2,3,4\) + 1 = \(2,3,4,5\) 
 
 ```python
 admit_mask=df['chance of admit'] > 0.7
@@ -264,7 +269,7 @@ Dual Indexing 3번 Group by 에서 추가로 다루겠습니다.
 9. Example: Manipulating DataFrame 
 
 `apply()` : series \(row\)단위로 인덱스 \(column\)접근하여 mapping 하는 함수.   
-`extract()` : regex 기반의 추출 함수.
+`extract()` : regex 기반의 추출 함수. 
 
 ## 1. Assignment Guidance
 
@@ -315,7 +320,7 @@ def corr_chickenpox():
 
 4번 문제는 chickenpox 병력이 있었으면 1, 없었으면 2로 표시되는 column \(attribute\)를 '직접 찾아서' chickenpox 예방 백신을 몇번 맞았는지의 colum \(attribute\)와 비교하는 작업입니다. 위 코드에서 `DataFrame`을 만드는 작업은 임의로 해둔 것이기 때문에 갖다 버리시고. 
 
-알려드리자면 NISPUF17.csv 파일을 불러와서 'HADCPOX' 애트리뷰트가 chickenpox 병럭이고 'P\_NUMVRC'가 예방 접종 횟수이므로 두개의 칼럼을 불러 옵니다. \(쓰레기값 제거는 해주셔야 합니다. 각자의 방식대로\) 
+알려드리자면 NISPUF17.csv 파일을 불러와서 `'HADCPOX'` 애트리뷰트가 chickenpox 병럭이고 `'P_NUMVRC'`가 예방 접종 횟수이므로 두개의 칼럼을 불러 옵니다. \(쓰레기값 제거는 해주셔야 합니다. 각자의 방식대로\) 
 
 마지막에 기존 `pearsonr(,)` 함수에 변수 이름만 바꿔서 넣어주시고, return corr 라인의 주석을 풀면 끝납니다.
 
