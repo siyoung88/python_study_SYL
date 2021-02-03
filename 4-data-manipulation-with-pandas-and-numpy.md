@@ -4,7 +4,11 @@
 
 1. Introduction to Pandas
 2. The Series Data Structure
+
+앞으로 이걸 row로 사용합니다.
+
 3. Querying a Series
+
 4. DataFrame Data Structure
 
 5. DataFrame Indexing and Loading
@@ -225,6 +229,8 @@ df[df["gre score"]>320].head()
 해당하는 row만 뽑아 낼 수도 있습니다. 난 그런데 이런 기능들이 달갑진 않더라..  
 몇 가지 주의사항이 존재하는데요. 이건 영상을 통해 보시고 직접 겪으시길.
 
+첫째로, and 와 or의 비교연산은 Series간에 불가능합니다. &와 \|의 기능이 오버로딩 되어있으므로 사용 가능합니다.
+
 | 비교연산 메소드 | 기호 | 의미 |
 | :--- | :--- | :--- |
 | eq\(\) | == | 같다 |
@@ -236,19 +242,157 @@ df[df["gre score"]>320].head()
 
 7. Indexing Dataframes
 
-Dual Indexing
+Dual Indexing 3번 Group by 에서 추가로 다루겠습니다.
 
 8. Missing Values
 
+3번 Group by 에서 추가로 다루겠습니다.
+
 9. Example: Manipulating DataFrame 
+
+`apply()` : series \(row\)단위로 인덱스 \(column\)접근하여 mapping 하는 함수.   
+`extract()` : regex 기반의 추출 함수.
 
 ## 1. Assignment Guidance
 
-## 3. Group by
+```python
+def proportion_of_education():
+    # your code goes here
+    # YOUR CODE HERE
+    raise NotImplementedError()
+```
 
+1번 문제는 NISPUS17.csv를 `pd.read_csv()`를 통해 불러오시고. mother의 학력 수준이 `'EDUC1'`에 기록되어 있으므로 해당 애트리뷰트에 boolean mask를 시행하면 됩니다. 1이 기록되어 있으면 고졸 미만, 2는 고졸, 3은 대학에 준하는, 4은 대졸입니다. 해당 boolean mask를 각각 `count()` 하고 전체 수에서 나누어주면 비율이 완성됩니다.
 
+```python
+def average_influenza_doses():
+    # YOUR CODE HERE
+    raise NotImplementedError()
+```
 
-## 4. Pearson Correlation Coefficient
+2번 문제는 breastfeeding과 influenza vaccine 접종의 상관관계를 보기 위한 것으로 breastfeeding 여부는 `'CBF_01'` attribute에서 1이 yes 2가 no인데요. 해당 그룹을 카테고리컬 변수로 봐서 \(쓰레기값은 존재합니다만, 어짜피 문제에서 첫번째와 두번째만 보라고 해서 상관 없을 겁니다.\) `groupby()`하시고. 백신 접종 여부인 `'P_NUMFLU'`를 참조하셔서 `mean()`을 통해 평균이라는 대표값을 튜플로 리턴하시면 됩니다. 
+
+```python
+def chickenpox_by_sex():
+    # YOUR CODE HERE
+    raise NotImplementedError()
+```
+
+3번은 1,2번과 거의 동일합니다. `'SEX'` attribute로 `groupby()` 해서 카테고리를 묶으시고, 조건만 많아 졌을 뿐. `'HADCPOX'` attribute에서 병력이 있었는지. `'SEX'`에서 성별이 무언지 \(male이 1이고 female이 2입니다.\) `'P_NUMVRC'`에서 백신은 맞았는지를 boolean masking \(모두 &로 하시면 됩니다.\) 해서 마지막에 백신을 병력이 없었던 사람 대비 있었던 사람의 수를 남자와 여자로 나누어서 `dictionary`로 저장하시면 됩니다.
+
+```python
+def corr_chickenpox():
+    import scipy.stats as stats
+    import numpy as np
+    import pandas as pd
+    
+    # this is just an example dataframe
+    df=pd.DataFrame({"had_chickenpox_column":np.random.randint(1,3,size=(100)),
+                   "num_chickenpox_vaccine_column":np.random.randint(0,6,size=(100))})
+
+    # here is some stub code to actually run the correlation
+    corr, pval=stats.pearsonr(df["had_chickenpox_column"],df["num_chickenpox_vaccine_column"])
+    
+    # just return the correlation
+    #return corr
+
+    # YOUR CODE HERE
+    raise NotImplementedError()
+```
+
+4번 문제는 chickenpox 병력이 있었으면 1, 없었으면 2로 표시되는 column \(attribute\)를 '직접 찾아서' chickenpox 예방 백신을 몇번 맞았는지의 colum \(attribute\)와 비교하는 작업입니다. 위 코드에서 `DataFrame`을 만드는 작업은 임의로 해둔 것이기 때문에 갖다 버리시고. 
+
+알려드리자면 NISPUF17.csv 파일을 불러와서 'HADCPOX' 애트리뷰트가 chickenpox 병럭이고 'P\_NUMVRC'가 예방 접종 횟수이므로 두개의 칼럼을 불러 옵니다. \(쓰레기값 제거는 해주셔야 합니다. 각자의 방식대로\) 
+
+마지막에 기존 `pearsonr(,)` 함수에 변수 이름만 바꿔서 넣어주시고, return corr 라인의 주석을 풀면 끝납니다.
+
+## 2. Group by
+
+UCI Machine Learning Repository의 abalone 데이터 셋입니다. 3번째 column인 height 부터는 생략합니다. `Groupby()` 는 카테고리컬 변수가 있을 때 다른 칼럼들의 대표값을 분석하기 가장 편리합니다.
+
+```python
+abalone.head()
+```
+
+|  | sex | length | diameter |
+| :--- | :--- | :--- | :--- |
+| 0 | M | 0.455 | 0.365 |
+| 1 | M | 0.265 | 0.090 |
+| 2 | F | 0.530 | 0.420 |
+| 3 | M | 0.440 | 0.365 |
+| 4 | I | 0.330 | 0.255 |
+
+결측값도 분석할 수 있곘지요.
+
+```python
+np.sum(pd.isnull(abalone))
+
+sex               0
+length            0
+diameter          0
+height            0
+whole_weight      0
+shucked_weight    0
+viscera_weight    0
+shell_weight      0
+rings             0
+dtype: int64
+```
+
+```python
+grouped = abalone['whole_weight'].groupby(abalone['sex'])
+
+<pandas.core.groupby.SeriesGroupBy object at 0x112668c10>
+```
+
+```python
+grouped.size()
+
+sex
+F    1307
+I    1342
+M    1528
+Name: whole_weight, dtype: int64
+```
+
+```python
+grouped.sum()
+
+sex
+F    1367.8175
+I     578.8885
+M    1514.9500
+Name: whole_weight, dtype: float64
+```
+
+```python
+grouped.mean()
+
+sex
+F    1.046532
+I    0.431363
+M    0.991459
+Name: whole_weight, dtype: float64
+```
+
+Dual Indexing도 사용해볼 수 있겠습니다. 
+
+```python
+abalone.groupby(['sex', 'length_cat'])['whole_weight'].mean()
+
+sex  length_cat  
+F    length_long     1.261330
+     length_short    0.589702
+I    length_long     0.923215
+     length_short    0.351234
+M    length_long     1.255182
+     length_short    0.538157
+Name: whole_weight, dtype: float64
+```
+
+해당 과의 실험은 [https://rfriend.tistory.com/383](https://rfriend.tistory.com/383) 를 참조하여 설정되었습니다.
+
+## 3. Pearson Correlation Coefficient
 
 [통계학](https://ko.wikipedia.org/wiki/%ED%86%B5%EA%B3%84%ED%95%99)에서 , 피어슨 상관 계수\(Pearson Correlation Coefficient ,PCC\)란 두 변수 X 와 Y 간의 선형 [상관 관계](https://ko.wikipedia.org/wiki/%EC%83%81%EA%B4%80_%EB%B6%84%EC%84%9D)를 계량화한 수치다 . 피어슨 상관 계수는 [코시-슈바르츠 부등식](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%8B%9C-%EC%8A%88%EB%B0%94%EB%A5%B4%EC%B8%A0_%EB%B6%80%EB%93%B1%EC%8B%9D)에 의해 +1과 -1 사이의 값을 가지며, +1은 완벽한 양의 선형 상관 관계, 0은 선형 상관 관계 없음, -1은 완벽한 음의 선형 상관 관계를 의미한다. 일반적으로 상관관계는 피어슨 상관관계를 의미한다.
 
