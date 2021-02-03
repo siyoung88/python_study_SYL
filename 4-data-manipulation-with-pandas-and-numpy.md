@@ -4,7 +4,11 @@
 
 1. Introduction to Pandas
 2. The Series Data Structure
+
+앞으로 이걸 row로 사용합니다.
+
 3. Querying a Series
+
 4. DataFrame Data Structure
 
 5. DataFrame Indexing and Loading
@@ -225,6 +229,8 @@ df[df["gre score"]>320].head()
 해당하는 row만 뽑아 낼 수도 있습니다. 난 그런데 이런 기능들이 달갑진 않더라..  
 몇 가지 주의사항이 존재하는데요. 이건 영상을 통해 보시고 직접 겪으시길.
 
+첫째로, and 와 or의 비교연산은 Series간에 불가능합니다. &와 \|의 기능이 오버로딩 되어있으므로 사용 가능합니다.
+
 | 비교연산 메소드 | 기호 | 의미 |
 | :--- | :--- | :--- |
 | eq\(\) | == | 같다 |
@@ -236,19 +242,106 @@ df[df["gre score"]>320].head()
 
 7. Indexing Dataframes
 
-Dual Indexing
+Dual Indexing 3번 Group by 에서 추가로 다루겠습니다.
 
 8. Missing Values
 
+3번 Group by 에서 추가로 다루겠습니다.
+
 9. Example: Manipulating DataFrame 
+
+`apply()` : series \(row\)단위로 인덱스 \(column\)접근하여 mapping 하는 함수.   
+`extract()` : regex 기반의 추출 함수.
 
 ## 1. Assignment Guidance
 
-## 3. Group by
+## 2. Group by
 
+UCI Machine Learning Repository의 abalone 데이터 셋입니다. 3번째 column인 height 부터는 생략합니다. `Groupby()` 는 카테고리컬 변수가 있을 때 다른 칼럼들의 대표값을 분석하기 가장 편리합니다.
 
+```python
+abalone.head()
+```
 
-## 4. Pearson Correlation Coefficient
+|  | sex | length | diameter |
+| :--- | :--- | :--- | :--- |
+| 0 | M | 0.455 | 0.365 |
+| 1 | M | 0.265 | 0.090 |
+| 2 | F | 0.530 | 0.420 |
+| 3 | M | 0.440 | 0.365 |
+| 4 | I | 0.330 | 0.255 |
+
+결측값도 분석할 수 있곘지요.
+
+```python
+np.sum(pd.isnull(abalone))
+
+sex               0
+length            0
+diameter          0
+height            0
+whole_weight      0
+shucked_weight    0
+viscera_weight    0
+shell_weight      0
+rings             0
+dtype: int64
+```
+
+```python
+grouped = abalone['whole_weight'].groupby(abalone['sex'])
+
+<pandas.core.groupby.SeriesGroupBy object at 0x112668c10>
+```
+
+```python
+grouped.size()
+
+sex
+F    1307
+I    1342
+M    1528
+Name: whole_weight, dtype: int64
+```
+
+```python
+grouped.sum()
+
+sex
+F    1367.8175
+I     578.8885
+M    1514.9500
+Name: whole_weight, dtype: float64
+```
+
+```python
+grouped.mean()
+
+sex
+F    1.046532
+I    0.431363
+M    0.991459
+Name: whole_weight, dtype: float64
+```
+
+Dual Indexing도 사용해볼 수 있겠습니다. 
+
+```python
+abalone.groupby(['sex', 'length_cat'])['whole_weight'].mean()
+
+sex  length_cat  
+F    length_long     1.261330
+     length_short    0.589702
+I    length_long     0.923215
+     length_short    0.351234
+M    length_long     1.255182
+     length_short    0.538157
+Name: whole_weight, dtype: float64
+```
+
+해당 과의 실험은 [https://rfriend.tistory.com/383](https://rfriend.tistory.com/383) 를 참조하여 설정되었습니다.
+
+## 3. Pearson Correlation Coefficient
 
 [통계학](https://ko.wikipedia.org/wiki/%ED%86%B5%EA%B3%84%ED%95%99)에서 , 피어슨 상관 계수\(Pearson Correlation Coefficient ,PCC\)란 두 변수 X 와 Y 간의 선형 [상관 관계](https://ko.wikipedia.org/wiki/%EC%83%81%EA%B4%80_%EB%B6%84%EC%84%9D)를 계량화한 수치다 . 피어슨 상관 계수는 [코시-슈바르츠 부등식](https://ko.wikipedia.org/wiki/%EC%BD%94%EC%8B%9C-%EC%8A%88%EB%B0%94%EB%A5%B4%EC%B8%A0_%EB%B6%80%EB%93%B1%EC%8B%9D)에 의해 +1과 -1 사이의 값을 가지며, +1은 완벽한 양의 선형 상관 관계, 0은 선형 상관 관계 없음, -1은 완벽한 음의 선형 상관 관계를 의미한다. 일반적으로 상관관계는 피어슨 상관관계를 의미한다.
 
