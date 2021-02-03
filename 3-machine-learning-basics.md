@@ -220,8 +220,7 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 
 ![Figure 2. &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; \(TCPschool.com &#xCD9C;&#xCC98;\)](.gitbook/assets/img_mysql_table.png)
 
-행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법. 조건에 따른 검색 방법  
-
+행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법. 조건에 따른 검색 방법
 
 1. Tuple, Row, Record 는 attribute의 모임을 말하고 모두 동의어입니다. 이들의 갯수를 cardinality라고 합니다. 
 2. Attribute는 \(중요\) column이라고 생각하면 안됩니다. Column Header라고 보셔야 합니다. 이 갯수를 degree로 나타냅니다.
