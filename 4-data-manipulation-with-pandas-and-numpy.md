@@ -35,7 +35,7 @@ df.head()
 | 3 | 4 | 322 | 110 | 3 | 3.5 | 2.5 | 8.67 | 1 | 0.80 |
 | 4 | 5 | 314 | 103 | 2 | 2.0 | 3.0 | 8.21 | 0 | 0.65 |
 
-index\_col=0 옵션을 통해 인덱스를 지울 수도 있습니다.
+index\_col=0 옵션을 통해 자동으로 생성하는 인덱스를 지울 수도 있습니다.
 
 ```python
 df = pd.read_csv('datasets/Admission_Predict.csv', index_col=0)
