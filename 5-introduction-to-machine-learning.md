@@ -1,6 +1,8 @@
-# 5강 - Introduction to Machine Learning
+# 5강 - Advanced Python review
 
 ## 0. iterable
 
-## 1. K-Nearest Neighbor Classification
+## 1. axis
+
+## 
 
