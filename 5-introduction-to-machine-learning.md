@@ -204,7 +204,7 @@ df.drop(['age', 'height'], axis=1)
 | 3 | BROWN | M |
 | 4 | MILLER | F |
 
-
+`axis=1` 이므로 열을 드랍해버립니다. 
 
 ```python
 df[['age', 'height']].mean(axis=0)
