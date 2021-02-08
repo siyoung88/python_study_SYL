@@ -39,7 +39,7 @@ def proportion_of_education():
 proportion_of_education()
 ```
 
-
+the proportion of education 만 볼 것이기 때문에 다른 attribute는 필요가 없어 'EDUC1'만 선택합니다. 이를 count\(\)하면 전체 record의 수가 될 것이며. 각각을 교육 수준에 따라 1~4 로 masking 하고 count\(\)합니다. 출력은 dictionary입니다.
 
 ```python
 def average_influenza_doses():
@@ -247,7 +247,7 @@ df[['age', 'height']].rank(axis=0)
 df[['age', 'height']].rank(axis=1)
 ```
 
-|  | age | heigt |
+|  | age | height |
 | :--- | :--- | :--- |
 | 0 | 1.0 | 2.0 |
 | 1 | 1.0 | 2.0 |
@@ -257,17 +257,33 @@ df[['age', 'height']].rank(axis=1)
 
 
 
-출처: 티스토리 블로그 [https://hogni.tistory.com/49](https://hogni.tistory.com/49) 를 참고하였습니다. 
+출처: 티스토리 블로그 [https://hogni.tistory.com/49](https://hogni.tistory.com/49) 의 실험 설정 참고하였습니다. 
 
-## 4. Random \(Training set, Test set\)
+## 4. Random \(Training set, Validation set, Test set\)
 
 사회과학 분야에서는, 다양한 변수들의 내재성과 무작위 선택의 유효성을 증명하기 위해 많은 과정을 필요로 합니다. 
 
-## 5. Classifier, Regression, Prediction
+![Figure 1. K-fold cross validation set division](.gitbook/assets/k_fold1.png)
 
-기본적으로 머신러닝에서는 통계학과 컴퓨터공학, 마지막으로 프로젝트에 사용할 사회과학적 개념과 데이터를 많이 활용합니다. 하지만, 기본적으로 공학적인 시각을 가진 문제 해결 방법으라고 할 수 있는데요. 사회과학에서의 문제해결방법과 어떻게 다른지. 
+![Figure 2. K-fold cross validation test setting](.gitbook/assets/k_fold2.png)
 
-머신러닝의 대표적인 활용 방향인 Classifier와 Regression, Prediction을 예시로 설명하겠습니다. 
+Figure 2. 의 Train set과 test/ Validation set 색 설정이 잘못되어 있습니다. 도대체 시중이 validation set과 test set이 제대 구분된 그림이 없습니다..
 
-## 
+또한, 프로그래밍할때 다수의 언어에서는 random\(\)함수의 seed에 따른 난수를 제공하지 매 실행시마다 완저한 random number를 return 하지 않으므로, 재활용 가능합니다. \(seed number를 저장하는 것이 좋음\)
+
+출처: [https://dgryoo95.tistory.com/19](https://dgryoo95.tistory.com/19) 포스팅에서 그림을 가져왔습니다.
+
+## 5. What is Machine Learning
+
+그림 설명으로 대체합니다. 
+
+![](.gitbook/assets/machinelearning_4.png)
+
+![](.gitbook/assets/machinelearning_1.png)
+
+![](.gitbook/assets/machinelearning_2.png)
+
+![](.gitbook/assets/machinelearning_3.png)
+
+그림 실력이 흉악하군요. 
 
