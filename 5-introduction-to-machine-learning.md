@@ -58,7 +58,7 @@ def average_influenza_doses():
 average_influenza_doses()
 ```
 
-`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 categorical attribute를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 numerical attribute와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
+`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 **categorical attribute**를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 **numerical attribute**와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
 
 ```python
 def chickenpox_by_sex():
