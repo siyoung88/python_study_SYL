@@ -39,7 +39,7 @@ def proportion_of_education():
 proportion_of_education()
 ```
 
-the proportion of education 만 볼 것이기 때문에 다른 attribute는 필요가 없어 'EDUC1'만 선택합니다. 이를 count\(\)하면 전체 record의 수가 될 것이며. 각각을 교육 수준에 따라 1~4 로 masking 하고 count\(\)합니다. 출력은 dictionary입니다.
+the proportion of education 만 볼 것이기 때문에 다른 attribute는 필요가 없어 'EDUC1'만 선택합니다. 이를 `count()`하면 전체 record의 수가 될 것이며. 각각을 교육 수준에 따라 1~4 로 masking 하고 `count()`합니다. 출력은 `dictionary`입니다.
 
 ```python
 def average_influenza_doses():
@@ -58,7 +58,7 @@ def average_influenza_doses():
 average_influenza_doses()
 ```
 
-
+`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 categorical attribute를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 numerical attribute와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
 
 ```python
 def chickenpox_by_sex():
@@ -82,7 +82,7 @@ def chickenpox_by_sex():
 chickenpox_by_sex()
 ```
 
-
+chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로, chicken pox의 병력 여부 \(有: 1, 無: 2\), 성별 \(男: 1, 女: 2\), 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
 
 ```python
 def corr_chickenpox():
@@ -114,7 +114,7 @@ def corr_chickenpox():
 corr_chickenpox()
 ```
 
-
+`df['P_NUMVRC'].dropna()` 를 쓰는 방법도 있겠지만 해당 경우에는 다른 attribute를 잘라먹게 되어. 그냥 Na value를 0보다 같거나 큰지 여부를 확인해서 없애주고. chicken pox에서도 outlier를 제거한다음 pearson correlation을 합니다. 
 
 ## 2. Iterable
 
@@ -190,7 +190,7 @@ df.drop([1,2], axis=0)
 | 3 | BROWN | 24.0 | 185 | M |
 | 4 | MILLER | NaN | 176 | F |
 
-1번과 2번 row \(axis=0 이므로\)를 drop 하게 되면 위와 같이 변합니다.
+1번과 2번 row \(`axis=0` 이므로\)를 `drop()` 하게 되면 위와 같이 변합니다.
 
 ```python
 df.drop(['age', 'height'], axis=1)
@@ -214,7 +214,7 @@ df[['age', 'height']].mean(axis=0)
 | :--- | :--- |
 | height | 175.60 |
 
-
+`axis=0` 은 각 행 \(레코드\)에 대해 동작하므로 각 행들의 평균 키와 몸무게를 구해보는 것은 의미가 있을 것입니다. 
 
 ```python
 df[['age', 'height']].mean(axis=1)
@@ -227,7 +227,7 @@ df[['age', 'height']].mean(axis=1)
 | 3 | 104.5 |
 | 4 | 176.0 |
 
-
+`axis=1`은 각 열에 대해 동작합니다. 따라서 나이와 키를 평균내는 것은 의미가 그닥.. 없을 겁니다. 
 
 ```python
 df[['age', 'height']].rank(axis=0)
@@ -241,7 +241,7 @@ df[['age', 'height']].rank(axis=0)
 | 3 | 1.5 | 5.0 |
 | 4 | NaN | 3.0 |
 
-
+`axis=0` 은 각 행에 대해서 동작합니다. 이 경우 각각의 나이와 키가 몇번째 순서인지 순위를 매겨줍니다. 공동 1위의 경우 1.5입니다. 
 
 ```python
 df[['age', 'height']].rank(axis=1)
@@ -255,7 +255,7 @@ df[['age', 'height']].rank(axis=1)
 | 3 | 1.0 | 2.0 |
 | 4 | NaN | 1.0 |
 
-
+`axis=1` 은 각 열들에 대해서 동작합니다. 이 경우 당연히 나이가 키보다 작을 수 밖에 없기 때문에 age 는 1.0, height 은 2.0입니다. 
 
 출처: 티스토리 블로그 [https://hogni.tistory.com/49](https://hogni.tistory.com/49) 의 실험 설정 참고하였습니다. 
 
