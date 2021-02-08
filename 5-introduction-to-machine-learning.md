@@ -15,6 +15,12 @@ Text Mining week 2 + there's no assignment
 
 ## 1. Commentary on the previous assignment
 
+```text
+
+```
+
+
+
 ## 2. Iterable
 
 finditer, zip 
