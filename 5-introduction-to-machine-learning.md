@@ -114,6 +114,8 @@ def corr_chickenpox():
 corr_chickenpox()
 ```
 
+
+
 ## 2. Iterable
 
  기존에 `finditer()`와 같은 함수를 사용했었고. 또한, 앞으로 `zip()`  과 같은 함수가 나올 뿐만 아니라 기본적으로 `for` 문에 있어서도. `for x in range(y):` 와 같은 구문을 우리는 종종 사용하는데요. 
@@ -157,7 +159,105 @@ def print_each(iterable):
 
 ## 3. Axis
 
-데이터프레임을 다룰 때에 
+데이터프레임을 다룰 때에 axis라는 옵션을 많이 보게 되는데요. 개념 자체는 간단합니다. axis=0 을 넣게되면 행을 따라 동작하고요. axis=1을 넣게 되면 열을 따라 동작합니다. 예시를 통해 보겠습니다. 
+
+```python
+df = pd.DataFrame(
+    {'name': ['KIM', 'LEE', 'SMITH','BROWN', 'MILLER'],
+     'age': [24, 32, 43, 24, np.nan],
+     'height': [178, 168, 171, 185, 176],
+     'sex': ['M', 'F', 'F', 'M', 'F']})
+df
+```
+
+|  | name | age | height | sex |
+| :--- | :--- | :--- | :--- | :--- |
+| 0 | KIM | 24.0 | 178 | M |
+| 1 | LEE | 32.0 | 168 | F |
+| 2 | SMITH | 43.0 | 171 | F |
+| 3 | BROWN | 24.0 | 185 | M |
+| 4 | MILLER | NaN | 176 | F |
+
+와 같은 데이터프레임을 만들었다고 합시다.
+
+```python
+df.drop([1,2], axis=0)
+```
+
+|  | name | age | height | sex |
+| :--- | :--- | :--- | :--- | :--- |
+| 0 | KIM | 24.0 | 178 | M |
+| 3 | BROWN | 24.0 | 185 | M |
+| 4 | MILLER | NaN | 176 | F |
+
+1번과 2번 row \(axis=0 이므로\)를 drop 하게 되면 위와 같이 변합니다.
+
+```python
+df.drop(['age', 'height'], axis=1)
+```
+
+|  | name | sex |
+| :--- | :--- | :--- |
+| 0 | KIM | M |
+| 1 | LEE | F |
+| 2 | SMITH | F |
+| 3 | BROWN | M |
+| 4 | MILLER | F |
+
+
+
+```python
+df[['age', 'height']].mean(axis=0)
+```
+
+| age | 30. |
+| :--- | :--- |
+| height | 175.60 |
+
+
+
+```python
+df[['age', 'height']].mean(axis=1)
+```
+
+| 0 | 101.0 |
+| :--- | :--- |
+| 1 | 100.0 |
+| 2 | 107.0 |
+| 3 | 104.5 |
+| 4 | 176.0 |
+
+
+
+```python
+df[['age', 'height']].rank(axis=0)
+```
+
+|  | age | height |
+| :--- | :--- | :--- |
+| 0 | 1.5 | 4.0 |
+| 1 | 3.0 | 1.0 |
+| 2 | 4.0 | 2.0 |
+| 3 | 1.5 | 5.0 |
+| 4 | NaN | 3.0 |
+
+
+
+```python
+df[['age', 'height']].rank(axis=1)
+```
+
+|  | age | heigt |
+| :--- | :--- | :--- |
+| 0 | 1.0 | 2.0 |
+| 1 | 1.0 | 2.0 |
+| 2 | 1.0 | 2.0 |
+| 3 | 1.0 | 2.0 |
+| 4 | NaN | 1.0 |
+
+
+
+출처: 티스토리 블로그 [https://hogni.tistory.com/49](https://hogni.tistory.com/49) 를 참고하였습니다. 
 
 ## 4. Random \(Training set, Test set\)
 
