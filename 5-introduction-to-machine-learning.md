@@ -279,11 +279,13 @@ Figure 2. 의 Train set과 test/ Validation set 색 설정이 잘못되어 있�
 
 ![](.gitbook/assets/machinelearning_4.png)
 
+위 그림과 같은 Analytic solution도 구할 수는 있습니다. 하지만, 차수가 커질 수록 해를 구할 수 있을지 확실해지지 않고. 계산양도 많아집니다.
+
 ![](.gitbook/assets/machinelearning_1.png)
 
 ![](.gitbook/assets/machinelearning_2.png)
 
 ![](.gitbook/assets/machinelearning_3.png)
 
-그림 실력이 흉악하군요. 
+그림 실력이 흉악하군요. 반면 위와 같이 Gradient Descent 방식으로 근사해를 구하는 과정은, 내장된 미분 계산 \(Cuda 등\)을 통해서 GPU에서 빠르게 연산할 수 있습니다. 
 
