@@ -58,7 +58,7 @@ def average_influenza_doses():
 average_influenza_doses()
 ```
 
-`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 **categorical attribute**를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 **numerical attribute**와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
+`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 **categorical attribute**를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 **numerical attribute**와 그를 대표하는 대표값**\(representative\)** 중 `mean()`을 사용하여 나타낼 것입니다. 
 
 ```python
 def chickenpox_by_sex():
@@ -82,7 +82,10 @@ def chickenpox_by_sex():
 chickenpox_by_sex()
 ```
 
-chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로, chicken pox의 병력 여부 \(有: 1, 無: 2\), 성별 \(男: 1, 女: 2\), 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
+chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로,   
+1\) chicken pox의 병력 여부 \(有: 1, 無: 2\)  
+2\) 성별 \(男: 1, 女: 2\)  
+3\) 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
 
 ```python
 def corr_chickenpox():
