@@ -160,7 +160,7 @@ def print_each(iterable):
 
 위 와 같이, `next()` 메소드를 기반으로 데이터를 순차적으로 호출 가능한 `object`를 `iterator`라고 하며, 마지막 `StopIteration exception`에 도달했을 때에 멈춥니다.  고로, `iterable` 이라고 해서 `iterator` 인 것은 아닙니다. `iterable`을 `iterator`로 변환하기 위해서는 `iter()` 라는 built-in function을 사용해야 하는 것이죠. 
 
-나아가, `zip([iterable, ...])` 함수에서 쓰일때는, 각각의 iterable한 객체\(6강에서 다룰 예정입니다.\)를 리스트로 담아. 각 순서에 맞게 리스트로 다시 내보냅니다. 
+나아가, `zip([iterable, ...])` 함수에서 쓰일때는, 각각의 `iterable`한 객체\(6강에서 다룰 예정입니다.\)를 리스트로 담아. 각 순서에 맞게 리스트로 다시 내보냅니다. 
 
 ```python
 number_list = [1, 2, 3]
@@ -186,7 +186,7 @@ print(result_set)
 {(2, 'two'), (3, 'three'), (1, 'one')}
 ```
 
-한편, map\(
+한편, `map(function, iterable, ...)`의 경우에는 `iterable`한 객체를 하나 받아서, 순서대로 `function`에 넣고 순서대로 모아서 결과값을 return 합니다.
 
 ## 3. Axis
 
