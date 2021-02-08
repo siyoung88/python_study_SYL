@@ -160,6 +160,34 @@ def print_each(iterable):
 
 위 와 같이, `next()` 메소드를 기반으로 데이터를 순차적으로 호출 가능한 `object`를 `iterator`라고 하며, 마지막 `StopIteration exception`에 도달했을 때에 멈춥니다.  고로, `iterable` 이라고 해서 `iterator` 인 것은 아닙니다. `iterable`을 `iterator`로 변환하기 위해서는 `iter()` 라는 built-in function을 사용해야 하는 것이죠. 
 
+나아가, `zip([iterable, ...])` 함수에서 쓰일때는, 각각의 iterable한 객체\(6강에서 다룰 예정입니다.\)를 리스트로 담아. 각 순서에 맞게 리스트로 다시 내보냅니다. 
+
+```python
+number_list = [1, 2, 3]
+str_list = ['one', 'two', 'three']
+
+# No iterables are passed
+result = zip()
+
+# Converting iterator to list
+result_list = list(result)
+print(result_list)
+
+# Two iterables are passed
+result = zip(number_list, str_list)
+
+# Converting iterator to set
+result_set = set(result)
+print(result_set)
+```
+
+```python
+[]
+{(2, 'two'), (3, 'three'), (1, 'one')}
+```
+
+한편, map\(
+
 ## 3. Axis
 
 데이터프레임을 다룰 때에 axis라는 옵션을 많이 보게 되는데요. 개념 자체는 간단합니다. axis=0 을 넣게되면 행을 따라 동작하고요. axis=1을 넣게 되면 열을 따라 동작합니다. 예시를 통해 보겠습니다. 
