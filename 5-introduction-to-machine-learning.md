@@ -13,15 +13,19 @@ Machine Learning week 1 + assignment 2 due to Feb 24th
 Feb 23th, 24th Text Mining  
 Text Mining week 2 + there's no assignment
 
-## 1. Iterable
+## 1. Commentary on the previous assignment
 
-## 2. Axis
+## 2. Iterable
 
-## 3. Random
+finditer, zip 
 
-## 4. Classifier, Regression, Prediction
+## 3. Axis
 
-## 5. Training set, Test set 
+## 4. Random
+
+## 5. Classifier, Regression, Prediction
+
+## 6. Training set, Test set 
 
 ## 
 
