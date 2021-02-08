@@ -58,7 +58,7 @@ def average_influenza_doses():
 average_influenza_doses()
 ```
 
-`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 **categorical attribute**를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 **numerical attribute**와 그를 대표하는 대표값**\(representative\)** 중 `mean()`을 사용하여 나타낼 것입니다. 
+`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 categorical attribute를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 numerical attribute와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
 
 ```python
 def chickenpox_by_sex():
@@ -82,10 +82,7 @@ def chickenpox_by_sex():
 chickenpox_by_sex()
 ```
 
-chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로,   
-1\) chicken pox의 병력 여부 \(有: 1, 無: 2\)  
-2\) 성별 \(男: 1, 女: 2\)  
-3\) 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
+chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로, chicken pox의 병력 여부 \(有: 1, 無: 2\), 성별 \(男: 1, 女: 2\), 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
 
 ```python
 def corr_chickenpox():
@@ -159,34 +156,6 @@ def print_each(iterable):
 처럼 자동으로 이 과정을 수행합니다. `iter()`라는 `iterable`을 받아 `iterator`로 리턴하고 `next()` 메소를 통해 `StopIteration`이라는 `exception`이 `raise`될 때까지 도는 것이 바로 `for` 문입니다. 이를 iterator protocol이라고 합니다. 
 
 위 와 같이, `next()` 메소드를 기반으로 데이터를 순차적으로 호출 가능한 `object`를 `iterator`라고 하며, 마지막 `StopIteration exception`에 도달했을 때에 멈춥니다.  고로, `iterable` 이라고 해서 `iterator` 인 것은 아닙니다. `iterable`을 `iterator`로 변환하기 위해서는 `iter()` 라는 built-in function을 사용해야 하는 것이죠. 
-
-나아가, `zip([iterable, ...])` 함수에서 쓰일때는, 각각의 `iterable`한 객체\(6강에서 다룰 예정입니다.\)를 리스트로 담아. 각 순서에 맞게 리스트로 다시 내보냅니다. 
-
-```python
-number_list = [1, 2, 3]
-str_list = ['one', 'two', 'three']
-
-# No iterables are passed
-result = zip()
-
-# Converting iterator to list
-result_list = list(result)
-print(result_list)
-
-# Two iterables are passed
-result = zip(number_list, str_list)
-
-# Converting iterator to set
-result_set = set(result)
-print(result_set)
-```
-
-```python
-[]
-{(2, 'two'), (3, 'three'), (1, 'one')}
-```
-
-한편, `map(function, iterable, ...)`의 경우에는 `iterable`한 객체를 하나 받아서, 순서대로 `function`에 넣고 순서대로 모아서 결과값을 return 합니다.
 
 ## 3. Axis
 
@@ -310,13 +279,11 @@ Figure 2. 의 Train set과 test/ Validation set 색 설정이 잘못되어 있�
 
 ![](.gitbook/assets/machinelearning_4.png)
 
-위 그림과 같은 Analytic solution도 구할 수는 있습니다. 하지만, 차수가 커질 수록 해를 구할 수 있을지 확실해지지 않고. 계산양도 많아집니다.
-
 ![](.gitbook/assets/machinelearning_1.png)
 
 ![](.gitbook/assets/machinelearning_2.png)
 
 ![](.gitbook/assets/machinelearning_3.png)
 
-그림 실력이 흉악하군요. 반면 위와 같이 Gradient Descent 방식으로 근사해를 구하는 과정은, 내장된 미분 계산 \(Cuda 등\)을 통해서 GPU에서 빠르게 연산할 수 있습니다. 
+그림 실력이 흉악하군요. 
 
