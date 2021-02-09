@@ -58,7 +58,7 @@ def average_influenza_doses():
 average_influenza_doses()
 ```
 
-`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 categorical attribute를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 numerical attribute와 그를 대표하는 대표값 중 `mean()`을 사용하여 나타낼 것입니다. 
+`groupby()`를 통해서 breast feeding을 받았는지 안받았는지 여부에 따라서 1과 2의 **categorical attribute**를 각각 grouping 하여 예방 접종을 몇회 접종했는지를 나타내는 **numerical attribute**와 그를 대표하는 대표값**\(representative\)** 중 `mean()`을 사용하여 나타낼 것입니다. 
 
 ```python
 def chickenpox_by_sex():
@@ -78,11 +78,16 @@ def chickenpox_by_sex():
     df_female_had_cpox = df['HAD_CPOX'][(df['HAD_CPOX'] == 1) & (df['SEX'] == 2) & (df['P_NUMVRC'] >= 1)].count()
     df_female_not_had_cpox = df['HAD_CPOX'][(df['HAD_CPOX'] == 2) & (df['SEX'] == 2) & (df['P_NUMVRC'] >= 1)].count()
     return {'male': df_male_had_cpox/df_male_not_had_cpox, 'female': df_female_had_cpox/df_female_not_had_cpox}
-    #returning dictornay
+    #returning dictonary
+    df['HAD_CPOX'] 
+ 
 chickenpox_by_sex()
 ```
 
-chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로, chicken pox의 병력 여부 \(有: 1, 無: 2\), 성별 \(男: 1, 女: 2\), 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
+chicken pox 병력이 있는지 여부를 묻는 attribute를 기준으로,   
+1\) chicken pox의 병력 여부 \(有: 1, 無: 2\)  
+2\) 성별 \(男: 1, 女: 2\)  
+3\) 마지막으로 접종 경험이 있는 표본만 가져와서 카운팅 할 것입니다.  
 
 ```python
 def corr_chickenpox():
@@ -116,7 +121,7 @@ corr_chickenpox()
 
 `df['P_NUMVRC'].dropna()` 를 쓰는 방법도 있겠지만 해당 경우에는 다른 attribute를 잘라먹게 되어. 그냥 Na value를 0보다 같거나 큰지 여부를 확인해서 없애주고. chicken pox에서도 outlier를 제거한다음 pearson correlation을 합니다. 
 
-## 2. Iterable
+## 2. Iterable & Iterator 
 
  기존에 `finditer()`와 같은 함수를 사용했었고. 또한, 앞으로 `zip()`  과 같은 함수가 나올 뿐만 아니라 기본적으로 `for` 문에 있어서도. `for x in range(y):` 와 같은 구문을 우리는 종종 사용하는데요. 
 
@@ -135,11 +140,11 @@ Python에서 당연하게 사용해왔던 위와 같은 `for` 문도 사실 `ran
 
 ```python
 def print_each(iterable):
-    iterator = iter(iterable)
+    iterator = iter(iterable) # 
     while True:
         try:
             item = next(iterator)
-        except StopIteration:
+        except StopIteration: # 
             break  # Iterator exhausted: stop the loop
         else:
             print(item)
@@ -156,6 +161,34 @@ def print_each(iterable):
 처럼 자동으로 이 과정을 수행합니다. `iter()`라는 `iterable`을 받아 `iterator`로 리턴하고 `next()` 메소를 통해 `StopIteration`이라는 `exception`이 `raise`될 때까지 도는 것이 바로 `for` 문입니다. 이를 iterator protocol이라고 합니다. 
 
 위 와 같이, `next()` 메소드를 기반으로 데이터를 순차적으로 호출 가능한 `object`를 `iterator`라고 하며, 마지막 `StopIteration exception`에 도달했을 때에 멈춥니다.  고로, `iterable` 이라고 해서 `iterator` 인 것은 아닙니다. `iterable`을 `iterator`로 변환하기 위해서는 `iter()` 라는 built-in function을 사용해야 하는 것이죠. 
+
+나아가, `zip([iterable, ...])` 함수에서 쓰일때는, 각각의 `iterable`한 객체\(6강에서 다룰 예정입니다.\)를 리스트로 담아. 각 순서에 맞게 리스트로 다시 내보냅니다. 
+
+```python
+number_list = [1, 2, 3]
+str_list = ['one', 'two', 'three']
+list = [4, 5, 6]
+# No iterables are passed
+result = zip()
+
+# Converting iterator to list
+result_list = list(result)
+print(result_list)
+
+# Two iterables are passed
+result = zip(number_list, str_list, list)
+
+# Converting iterator to set
+result_set = set(result)
+print(result_set)
+```
+
+```python
+[]
+{(2, 'two', 4), (3, 'three',5), (1, 'one',6)}
+```
+
+한편, `map(function, iterable, ...)`의 경우에는 `iterable`한 객체를 하나 받아서, 순서대로 `function`에 넣고 순서대로 모아서 결과값을 return 합니다.
 
 ## 3. Axis
 
@@ -261,7 +294,15 @@ df[['age', 'height']].rank(axis=1)
 
 ## 4. Random \(Training set, Validation set, Test set\)
 
-사회과학 분야에서는, 다양한 변수들의 내재성과 무작위 선택의 유효성을 증명하기 위해 많은 과정을 필요로 합니다. 
+사회과학 분야에서는, 다양한 변수들의 내재성과 무작위 선택의 유효성을 증명하기 위해 많은 과정을 필요로 합니다. MAPE, MPE 
+
+1 3 / 2 5 / 6 7 
+
+1 3 / 2 5 \(train & valid\) 6 7 \(test\) 
+
+1 3 / 6 7 \(train & valid\) 2 5 \(test\)
+
+2 5 / 6 7 \(train & valid\) 1 3 \(test\)  
 
 ![Figure 1. K-fold cross validation set division](.gitbook/assets/k_fold1.png)
 
@@ -279,11 +320,21 @@ Figure 2. 의 Train set과 test/ Validation set 색 설정이 잘못되어 있�
 
 ![](.gitbook/assets/machinelearning_4.png)
 
+위 그림과 같은 Analytic solution도 구할 수는 있습니다. 하지만, 차수가 커질 수록 해를 구할 수 있을지 확실해지지 않고. 계산양도 많아집니다.
+
 ![](.gitbook/assets/machinelearning_1.png)
 
 ![](.gitbook/assets/machinelearning_2.png)
 
 ![](.gitbook/assets/machinelearning_3.png)
 
-그림 실력이 흉악하군요. 
+```python
+x^2 
+def derviation_fx(x_value):
+ y = 2x 
+ return y 
+   
+```
+
+그림 실력이 흉악하군요. 반면 위와 같이 Gradient Descent 방식으로 근사해를 구하는 과정은, 내장된 미분 계산 \(Cuda 등\)을 통해서 GPU에서 빠르게 연산할 수 있습니다. 
 
