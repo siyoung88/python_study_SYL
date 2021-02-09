@@ -2,18 +2,18 @@
 
 ## 0. Schedule
 
-Jan 26th, 27th   
+Jan 26th . 27th   
 Introduction week1 + assignment 1 due to Feb 2nd  
-Feb 2nd,  3rd   
+Feb 2nd .  3rd   
 Introduction week2 + assignment 2 due to Feb 9th  
-Feb 9th,   10th Intro  
+Feb 9th .   10th Intro  
 Introduction week4 + assignment 4 due to Feb 16th  
-Feb 16th, 17th Machine Learning  
+Feb 16th . 17th Machine Learning  
 Machine Learning week 1 + assignment 1 due to Feb 23th  
-Feb 23th, 24th Text Mining  
+Feb 23th . 24th Text Mining  
 Text Mining week 1 + assignment 1 there's no due date
 
-3 python Introductory courses + 2 appliances \(each from machine learning and text mining\)   
+3 python Introductory courses + 2 appliance \(each from machine learning and text mining\)   
 패스트 캠퍼스 강의 16강
 
 과제: 매주 화요일까지 해당 week의 contents 수강 및 assignment push   
@@ -25,17 +25,17 @@ Text Mining week 1 + assignment 1 there's no due date
 
 스케치 설명으로 대체합니다.
 
-## 2. How to enrol 
+## 2. How to enroll 
 
-1\) main page 에서 enrol for free click 
+1\) main page 에서 enroll for free click 
 
 ## 3. How to start an assignment
 
-1\) Coursera 내장 Jupyter
+1\) coursera 내장 jupyter
 
 ## 4. initializing project repository
 
-1\) Github 가입  
+1\) github 가입  
 2\) repository 생성  
 3\) License 추가  
 4\) commit & pull request  
