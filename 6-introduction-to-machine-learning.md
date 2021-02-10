@@ -441,7 +441,20 @@ def accuracy_plot():
     plt.title('Training and Test Accuracies for Malignant and Benign Cells', alpha=0.8)
 ```
 
- 
+##  5. Schedule
+
+~~Jan 26th, 27th~~   
+Introduction week1 + assignment 1 due to Feb 2nd  
+~~Feb 2nd,  3rd~~   
+Introduction week2 + assignment 2 due to Feb 9th  
+~~Feb 9th, 10th~~ Machine Learning  
+Machine Learning week1 + assignment 1 due to Feb 16th
+
+다음주가 텍스트 마이닝으로 넘어갈 예정인데요. 일정에 따라서 다음주 한주 머신러닝에 관련한 수학적 내용을 한번 더 다룰 수 도 있습니다. 의견있으시면 언제든지 주세요!    
+Feb 16th, 17th Text Mining  
+Machine Learning week 1 + assignment 2 due to Feb 24th  
+Feb 23th, 24th Text Mining  
+Text Mining week 2 + there's no assignment
 
 
 
