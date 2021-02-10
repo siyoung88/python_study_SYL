@@ -75,7 +75,8 @@ original array index \[0,1\] value after change: 50
 [https://regex101.com/](https://regex101.com/)  
 정규표현식
 
-\*, + 반복
+\*, + 반복  
+meta character : \[, \], ., ^, \*, + 
 
 * 0개 이상 반복
 * 하나 이상 반복

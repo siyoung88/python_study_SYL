@@ -54,8 +54,8 @@ def logs():
     #print(y[0])
     name_list = list() #리스트 선언
     dictionary_iter = dict() #딕셔너리 선언
-    #for i in range(len(y)): #y의 줄 수 만큼 반복
-    for i in range(2): #몇번 반복할지
+    for i in range(len(y)): #y의 줄 수 만큼 반복
+    #for i in range(2): #몇번 반복할지
         dictionary_iter['host'] = str(re.findall('.*[.][\d]* -',y[i])) #찾아서
         dictionary_iter['host'] = dictionary_iter['host'][2:-4] #잘라내
         #print(dictionary_iter['host'])
@@ -71,7 +71,7 @@ def logs():
         dictionary_iter['request'] = str(re.findall('["].*["]',y[i]))
         dictionary_iter['request'] = dictionary_iter['request'][3:-3]
         #print(dictionary_iter['request'])
-        name_list.append(dictionary_iter)
+        name_list.append(dictionary_iter.copy())
         name_list.append(i) 
     
     print(name_list)
@@ -80,7 +80,7 @@ def logs():
     raise NotImplementedError()
 ```
 
-caution : `dictionary` is mutable  
+caution : `dictionary` is mutable == call by reference  
 we should use `.copy()` to return new dictionaries
 
 ```python
@@ -137,7 +137,7 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 
 ## 2. Bitwise and Logical operators
 
-1. Bitwise Operators a = 60, b = 13 이라 하면, 이진법으로 나타냈을 때 a = 0011 1100, b = 0000 1101 이다.
+1. Bitwise Operators a = 60, b = 13 이라 하면, 이진법으로 나타냈을 때 a = 0011 1100, b = 0000 1101 이다. 1 2 4 8 16 32 64 128  32+16+8+4 = 60
 
 <table>
   <thead>
@@ -220,6 +220,9 @@ magic command 란 무엇일까요? Jupyter는 본래 IPython을 모태로 하고
 
 ![Figure 2. &#xAD00;&#xACC4;&#xD615; &#xB370;&#xC774;&#xD130;&#xBCA0;&#xC774;&#xC2A4; \(TCPschool.com &#xCD9C;&#xCC98;\)](.gitbook/assets/img_mysql_table.png)
 
-행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법. 조건에 따른 검색 방법  
+행, 튜플, 레코드의 접근 방법. 열, 필드, 속성의 접근 방법. 수정 방법. 조건에 따른 검색 방법
 
+1. Tuple, Row, Record 는 attribute의 모임을 말하고 모두 동의어입니다. 이들의 갯수를 cardinality라고 합니다. 
+2. Attribute는 \(중요\) column이라고 생각하면 안됩니다. Column Header라고 보셔야 합니다. 이 갯수를 degree로 나타냅니다.
+3. 보통 첫번째 칼럼이 인덱스가 되는데 듀얼로 사용할 수 도 있습니다. 
 
