@@ -263,9 +263,13 @@ array(
 
 ![Figure 6. k = 4 &#xC77C; &#xB54C;](.gitbook/assets/knn04.png)
 
+tie break하는 여러가지 방법이 있습니다.
+
 ![Figure 7. k = 5 &#xC77C; &#xB54C; ](.gitbook/assets/knn05.png)
 
 ![Figure 8. overfitting &#xC608;&#xC2DC;](.gitbook/assets/overfit-1024x951.png)
+
+왼쪽 상단의 경우 k = 1 일시에 outlier가 overfit 됩니다.
 
 ![Figure 9. determining whether underfitted or overfitted](.gitbook/assets/k-underfitting-768x605.jpg)
 
@@ -467,8 +471,6 @@ Feb 23th, 24th Text Mining
 Text Mining week 2 + there's no assignment
 
 **스터디 윗미 하실 분 모집해요 ~** 
-
-
 
 
 
