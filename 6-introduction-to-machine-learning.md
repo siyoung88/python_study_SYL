@@ -1,6 +1,6 @@
 # 6강 - Introduction to Machine Learning
 
-## 0. Reshape
+## 0. Advanced Python - Reshape
 
 reshape\(\) 메소드의 경우 np.reshape\( array, dimension\) 또는 array.reshape\(dimension\) 과 같은 구문으로 사용할 수 있습니다. 배열의 차원을 변경할때 사용합니다. 
 
@@ -253,27 +253,201 @@ array(
 [https://wiserloner.tistory.com/956](https://wiserloner.tistory.com/956) 에서 sum 하는 예시를 가져왔습니다.   
 [https://rfriend.tistory.com/290](https://rfriend.tistory.com/290) 에서 numpy array reshaping 의 예시를 참조하였습니다.
 
-## 1. Classifier, Regression, Prediction
-
-기본적으로 머신러닝에서는 통계학과 컴퓨터공학, 마지막으로 프로젝트에 사용할 사회과학적 개념과 데이터를 많이 활용합니다. 하지만, 기본적으로 공학적인 시각을 가진 문제 해결 방법으라고 할 수 있는데요. 사회과학에서의 문제해결방법과 어떻게 다른지. 
-
-머신러닝의 대표적인 활용 방향인 Classifier와 Regression, Prediction을 예시로 설명하겠습니다. 
-
-## 2. K-Nearest Neighbor Classification
+## 1. K-Nearest Neighbor Classification
 
 
 
-## 3. Robustness
+## 2. Robustness
 
 
 
-## 4. Advanced Python - Objects
+## 3. Advanced Python - Objects
 
 우리가 지금까지 df나 knn과 같은 객체들을 사용해왔습니다. 사실 객체지향, 절차형, 함수형 프로그래밍 패러다임들을 이해하는 것이 근본적으로는 제일 중요한데요. 제가 잘 모릅니다 :\) . 전공자들 중에서도 프로그래밍 언어론, 소프트웨어 공학 쪽을 전공하신 분들이 정확히 알고 계시는 분야입니다만. 한번, 어떤 개념인지는 보고 가겠습니다. 
 
-그림을 통해 설명합니다. 
+객체지향에는 5가지 키워드가 있습니다.  
+  
+1\) 클래스, 인스턴스 \(객체\)  
+2\) 추상화  
+3\) 캡슐화  
+4\) 상속  
+5\) 다형성
 
-## 5. Advanced Python - reshaping array
+이 중 5번 다형성에는 오버로딩과 오버라이딩이 포함되는데요. 이전 강의에서 다뤘던 내용입니다.
+
+그리고 이번에는 1\) 클래스와 인스턴스, 그리고 4\) 상속에 대해서 이야기해 보도록하겠습니다. 
+
+![Figure 3. &#xC0C1;&#xC18D;&#xB3C4;](.gitbook/assets/oop.png)
+
+클래스: 설계도   
+인스턴스: 제품
+
+![Figure 4. &#xC778;&#xC2A4;&#xD134;&#xC2A4;&#xC5D0; &#xB300;&#xD55C; &#xC124;&#xBA85;](.gitbook/assets/1878.png)
+
+각 패러다임을 선택해서 '난 객체지향 패러다임을 이용해서 프로그래밍을 할거야!'라는 식으로 이야기하지는 않습니다. 예를 들어, 사람끼리 대화할때에도 '나는 두괄식 화법을 사용할거야.'라고 생각해서 발화하지 않는 것처럼 말입니다. 각 패러다임을 이해하고 좋은 방향을 선택해서 프로그래밍을 계획할 수 있는 능력이 중요하겠습니다. 
+
+출처: [https://opentutorials.org/course/2517/14041](https://opentutorials.org/course/2517/14041) 에서 인스턴스에 대한 설명을 참조하였습니다.
+
+## 4. Assignment Guidance 
+
+ 첫번째 문제는, `cancer.data` 에 feature들이 있고. `cancer.target`에 label 이 있는데 이를 `concat()`하라는 것입니다. attribute를 추가하는 것이니 axis는 1이 적당하겠습니다. 그냥 `concat()`하면 이어지는 attribute의 이름을 지정하지 않을 경우 0, 1, 2등의 숫자로 들어가게 되니. `cancerdf.columns = np.append` 구문 통해서 'target'이라고 이름을 지정해 주는 것도 좋습니다. 
+
+```python
+def answer_one():
+    # Your code here
+    
+    return # Return your answer
+answer_one()
+```
+
+두번째는, dataframe에서 maligant는 0이고 benign한 그룹은 1로 마킹되어있는 target label에서 각각의 수를 세서 maligant와 benign을 index로 하는 프레임을 리턴해 달라는 것입니다. 뭐, 각각 마스킹해서 카운팅 해도 되고 `value_counts()`라는 메소드를 사용하셔도 되는데 방법은 많습니다. 
+
+```python
+def answer_two():
+    cancerdf = answer_one()
+    
+    # Your code here
+    
+    return # Return your answer
+
+
+answer_two()
+```
+
+세번째는, 본격적으로 feature X와 label y를 구분합니다. 기존으 데이터 프레임에서 마지막 target attribute를 drop해서 y에 가져오면 이것이 라벨입니다. \(왜 굳이 합쳤다 붙였다 하는지 똥개훈련인가.\)
+
+```python
+def answer_three():
+    cancerdf = answer_one()
+    
+    # Your code here
+    
+    return X, y
+```
+
+네번째가 메인이라고 할 수 있습니다. training set과 test set을 분리하는 것인데요. train\_test\_split\(\) 메소드를 import하셔서 사용하시면 됩니다. random seed같은 경우는 0을 사용하라고 명시되어 있네요. 
+
+다시 한 번 언급하자면,   
+x는 feature, y는 label 그리고 각각을   
+train set과 test set으로 구분하는 겁니다.   
+예를 들어 x\_test 라면 test할때 예측에 사용되는 feature 겠지요? 
+
+```python
+from sklearn.model_selection import train_test_split
+
+def answer_four():
+    X, y = answer_three()
+    
+    # Your code here
+    
+    return X_train, X_test, y_train, y_test
+```
+
+다섯번째의 경우에는 4번에서 분리한 set을 가지고 실제로 KNeighborsClassifier\(\) 메소드를 통해 knn 인스턴스를 생성할 것입니다. neighbor는 1으로 하라고 명시되어 있네요. 
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+
+def answer_five():
+    X_train, X_test, y_train, y_test = answer_four()
+    
+    # Your code here
+    
+    return # Return your answer
+```
+
+여섯번째는 평균을 구해서 평균만큼 넣었을때 어떤 라벨로 예측할지 해보라는 것인데요. knn인스턴스에 `predict()`메소드를 사용하시면 되고. mean을 구할 array같은 경우는 오늘 수업에서 `reshape()`에 대한 설명을 했습니다.
+
+```python
+def answer_six():
+    cancerdf = answer_one()
+    means = cancerdf.mean()[:-1].values.reshape(1, -1)
+    
+    # Your code here
+    
+    return # Return your answer
+```
+
+일곱번째는 test set을 가지고 실제로 어떻게 예측을 해내는지 보는 것입니다. 이렇게 예측을 한다음 결과물을 가지고 test set y랑 비교해서 점수를 내면 그게 모델 평가가 되겠지요?
+
+```python
+def answer_seven():
+    X_train, X_test, y_train, y_test = answer_four()
+    knn = answer_five()
+    
+    # Your code here
+    
+    return # Return your answer
+```
+
+여덟번째가 바로 이 과정을 해보는 겁니다. knn인스턴스의 score\(\) 메소드를 사용하시면 됩니다. 
+
+```python
+def answer_eight():
+    X_train, X_test, y_train, y_test = answer_four()
+    knn = answer_five()
+    
+    # Your code here
+    
+    return # Return your answer
+```
+
+마지막 plot 해보는 예시가 있는데요. 실제 보고서에 넣을때 쓸만한 plotting 기능들인데 원래 수강 목표에 있었던 2번째 강의 \(Applied Plotting, Charting & Data Representation in Python\) 가 해당 내용을 다룹니다. 하지만, 뭐 결국 실험자체가 중요한거니까. 여기서도 그냥 코드를 다 줘서 실행만 시켜보면 됩니다. **꼭 확인할 거에요!!** 
+
+```python
+def accuracy_plot():
+    import matplotlib.pyplot as plt
+
+    %matplotlib notebook
+
+    X_train, X_test, y_train, y_test = answer_four()
+
+    # Find the training and testing accuracies by target value (i.e. malignant, benign)
+    mal_train_X = X_train[y_train==0]
+    mal_train_y = y_train[y_train==0]
+    ben_train_X = X_train[y_train==1]
+    ben_train_y = y_train[y_train==1]
+
+    mal_test_X = X_test[y_test==0]
+    mal_test_y = y_test[y_test==0]
+    ben_test_X = X_test[y_test==1]
+    ben_test_y = y_test[y_test==1]
+
+    knn = answer_five()
+
+    scores = [knn.score(mal_train_X, mal_train_y), knn.score(ben_train_X, ben_train_y), 
+              knn.score(mal_test_X, mal_test_y), knn.score(ben_test_X, ben_test_y)]
+
+
+    plt.figure()
+
+    # Plot the scores as a bar chart
+    bars = plt.bar(np.arange(4), scores, color=['#4c72b0','#4c72b0','#55a868','#55a868'])
+
+    # directly label the score onto the bars
+    for bar in bars:
+        height = bar.get_height()
+        plt.gca().text(bar.get_x() + bar.get_width()/2, height*.90, '{0:.{1}f}'.format(height, 2), 
+                     ha='center', color='w', fontsize=11)
+
+    # remove all the ticks (both axes), and tick labels on the Y axis
+    plt.tick_params(top='off', bottom='off', left='off', right='off', labelleft='off', labelbottom='on')
+
+    # remove the frame of the chart
+    for spine in plt.gca().spines.values():
+        spine.set_visible(False)
+
+    plt.xticks([0,1,2,3], ['Malignant\nTraining', 'Benign\nTraining', 'Malignant\nTest', 'Benign\nTest'], alpha=0.8);
+    plt.title('Training and Test Accuracies for Malignant and Benign Cells', alpha=0.8)
+```
+
+ 
+
+
+
+
+
+
 
 
 
