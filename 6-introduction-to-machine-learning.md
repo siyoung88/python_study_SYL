@@ -255,13 +255,23 @@ array(
 
 ## 1. K-Nearest Neighbor Classification
 
+![Figure 3. k = 1 &#xC77C; &#xB54C;](.gitbook/assets/knn01.png)
 
+![Figure 4. k = 2 &#xC77C; &#xB54C;](.gitbook/assets/knn02.png)
 
-## 2. Robustness
+![Figure 5. k = 3 &#xC77C; &#xB54C;](.gitbook/assets/knn03.png)
 
+![Figure 6. k = 4 &#xC77C; &#xB54C;](.gitbook/assets/knn04.png)
 
+![Figure 7. k = 5 &#xC77C; &#xB54C; ](.gitbook/assets/knn05.png)
 
-## 3. Advanced Python - Objects
+![Figure 8. overfitting &#xC608;&#xC2DC;](.gitbook/assets/overfit-1024x951.png)
+
+![Figure 9. determining whether underfitted or overfitted](.gitbook/assets/k-underfitting-768x605.jpg)
+
+출처: [http://hleecaster.com/ml-knn-concept/](http://hleecaster.com/ml-knn-concept/) 에서 이미지 자료들을 가져왔습니다. 이미지 직접 만드신 것 같은데 연락 없이 가져와서 죄송합니다. 
+
+## 2. Advanced Python - Objects
 
 우리가 지금까지 df나 knn과 같은 객체들을 사용해왔습니다. 사실 객체지향, 절차형, 함수형 프로그래밍 패러다임들을 이해하는 것이 근본적으로는 제일 중요한데요. 제가 잘 모릅니다 :\) . 전공자들 중에서도 프로그래밍 언어론, 소프트웨어 공학 쪽을 전공하신 분들이 정확히 알고 계시는 분야입니다만. 한번, 어떤 개념인지는 보고 가겠습니다. 
 
@@ -288,7 +298,7 @@ array(
 
 출처: [https://opentutorials.org/course/2517/14041](https://opentutorials.org/course/2517/14041) 에서 인스턴스에 대한 설명을 참조하였습니다.
 
-## 4. Assignment Guidance 
+## 3. Assignment Guidance 
 
  첫번째 문제는, `cancer.data` 에 feature들이 있고. `cancer.target`에 label 이 있는데 이를 `concat()`하라는 것입니다. attribute를 추가하는 것이니 axis는 1이 적당하겠습니다. 그냥 `concat()`하면 이어지는 attribute의 이름을 지정하지 않을 경우 0, 1, 2등의 숫자로 들어가게 되니. `cancerdf.columns = np.append` 구문 통해서 'target'이라고 이름을 지정해 주는 것도 좋습니다. 
 
@@ -441,7 +451,7 @@ def accuracy_plot():
     plt.title('Training and Test Accuracies for Malignant and Benign Cells', alpha=0.8)
 ```
 
-##  5. Schedule
+##  4. Schedule
 
 ~~Jan 26th, 27th~~   
 Introduction week1 + assignment 1 due to Feb 2nd  
@@ -455,6 +465,8 @@ Feb 16th, 17th Text Mining
 Machine Learning week 1 + assignment 2 due to Feb 24th  
 Feb 23th, 24th Text Mining  
 Text Mining week 2 + there's no assignment
+
+**스터디 윗미 하실 분 모집해요 ~** 
 
 
 
