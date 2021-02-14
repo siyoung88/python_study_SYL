@@ -304,7 +304,7 @@ tie break하는 여러가지 방법이 있습니다.
 
 ## 3. Assignment Guidance 
 
- 첫번째 문제는, `cancer.data` 에 feature들이 있고. `cancer.target`에 label 이 있는데 이를 `concat()`하라는 것입니다. attribute를 추가하는 것이니 axis는 1이 적당하겠습니다. 그냥 `concat()`하면 이어지는 attribute의 이름을 지정하지 않을 경우 0, 1, 2등의 숫자로 들어가게 되니. `cancerdf.columns = np.append` 구문 통해서 'target'이라고 이름을 지정해 주는 것도 좋습니다. 
+ 첫번째 문제는, `cancer.data` 에 feature들이 있고. `cancer.target`에 label 이 있는데 이를 `concat()`하라는 것입니다. attribute를 추가하는 것이니 axis는 1이 적당하겠습니다. 그냥 `concat()`하면 이어지는 attribute의 이름을 지정하지 않을 경우 0, 1, 2등의 숫자로 들어가게 되니. `df.columns = np.append` 구문 통해서 'target'이라고 이름을 지정해 주는 것도 좋습니다. 
 
 ```python
 def answer_one():
@@ -314,7 +314,7 @@ def answer_one():
 answer_one()
 ```
 
-두번째는, dataframe에서 maligant는 0이고 benign한 그룹은 1로 마킹되어있는 target label에서 각각의 수를 세서 maligant와 benign을 index로 하는 프레임을 리턴해 달라는 것입니다. 뭐, 각각 마스킹해서 카운팅 해도 되고 `value_counts()`라는 메소드를 사용하셔도 되는데 방법은 많습니다. 
+두번째는, dataframe에서 maligant는 0이고 benign한 그룹은 1로 마킹되어있는 target label에서 각각의 수를 세서 maligant와 benign을 index로 하는 프레임을 리턴해 달라는 것입니다. 뭐, 각각 마스킹해서 카운팅 `count()` 해도 되고 `value_counts()`라는 메소드를 사용하셔도 되는데 방법은 많습니다. 
 
 ```python
 def answer_two():
@@ -328,7 +328,7 @@ def answer_two():
 answer_two()
 ```
 
-세번째는, 본격적으로 feature X와 label y를 구분합니다. 기존으 데이터 프레임에서 마지막 target attribute를 drop해서 y에 가져오면 이것이 라벨입니다. \(왜 굳이 합쳤다 붙였다 하는지 똥개훈련인가.\)
+세번째는, 본격적으로 feature X와 label y를 구분합니다. 기존의 데이터 프레임에서 마지막 target attribute를 drop해서 y에 가져오면 이것이 라벨입니다. \(왜 굳이 합쳤다 붙였다 하는지 똥개훈련인가.\)
 
 ```python
 def answer_three():
@@ -354,7 +354,11 @@ def answer_four():
     
     # Your code here
     
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test 
+ex) x_train = yellow, 5, 5 
+ex) y_train = lemon 
+ex) X_test = yellow, 5, 10
+ex) y_test = lemon (or not) 
 ```
 
 다섯번째의 경우에는 4번에서 분리한 set을 가지고 실제로 KNeighborsClassifier\(\) 메소드를 통해 knn 인스턴스를 생성할 것입니다. neighbor는 1으로 하라고 명시되어 있네요. 
@@ -364,7 +368,6 @@ from sklearn.neighbors import KNeighborsClassifier
 
 def answer_five():
     X_train, X_test, y_train, y_test = answer_four()
-    
     # Your code here
     
     return # Return your answer
