@@ -171,5 +171,9 @@ dependent - label
 출처 : [https://andyjconnelly.wordpress.com/2017/05/15/accuracy-and-precision/](https://andyjconnelly.wordpress.com/2017/05/15/accuracy-and-precision/)  
 
 
+## 2. parameter and hyperparameter
+
+
+
 
 
