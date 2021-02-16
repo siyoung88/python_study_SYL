@@ -187,7 +187,11 @@ hyperparameters ex\) learning rate, k at KNN, Cost at SVM
 
 ![](.gitbook/assets/image.png)
 
+Kernel
 
+![Figure 2. Kernels](.gitbook/assets/r1280x0.png)
+
+출처 : [https://injo.tistory.com/34](https://injo.tistory.com/34)
 
 
 
