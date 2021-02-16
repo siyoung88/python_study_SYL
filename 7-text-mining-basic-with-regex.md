@@ -185,5 +185,9 @@ vs
 
 hyperparameters ex\) learning rate, k at KNN, Cost at SVM
 
+![](.gitbook/assets/image.png)
+
+
+
 
 
