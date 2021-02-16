@@ -173,7 +173,17 @@ dependent - label
 
 ## 2. parameter and hyperparameter
 
+polynomial regression
 
+$$
+y = 0.5x² + x + 2
+$$
+
+parameter?
+
+vs
+
+hyperparameters ex\) learning rate, k at KNN, Cost at SVM
 
 
 
