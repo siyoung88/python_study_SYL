@@ -2,7 +2,11 @@
 
 ## 0. Logistic Regression
 
-## 1. Regularization
+
+
+## 1. Multiclass classfication
+
+## 2. Regularization
 
 polynomial regression - Regularization  
 이미지 각 상황에맞는 도로교통 -&gt; 각상황을 온라인으로 받는 regularization
@@ -13,7 +17,7 @@ KNN 은 예외였으나. supervised learning의 경우 학습이 진행될수록
 
 
 
-## 2. Soft Vector Machine
+## 3. Soft Vector Machine
 
 마진 위에 있는 것들을 1로 아래있는 것들을 -1로. 
 
