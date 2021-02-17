@@ -2,6 +2,14 @@
 
 ## 0. Logistic Regression
 
+schedule
+
+이번주까지. Machine learning week 1 
+
+week2 부터 안하고 Text mining으로 가려고 했으나.. 
+
+
+
 ![&#xC120;&#xD615;&#xD68C;&#xADC0;&#xC758; &#xC798;&#xBABB;&#xB41C; &#xC608;&#xC2DC;](.gitbook/assets/image%20%284%29.png)
 
 ![](.gitbook/assets/screen-shot-2021-02-17-at-10.56.55-am.png)

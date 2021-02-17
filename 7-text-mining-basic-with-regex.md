@@ -57,6 +57,8 @@ def answer_three():
     return X, y
 
 answer_three()
+# dependent = label
+# independent = feature 
 ```
 
 ```python
