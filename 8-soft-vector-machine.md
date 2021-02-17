@@ -2,7 +2,13 @@
 
 ## 0. Logistic Regression
 
+![&#xC120;&#xD615;&#xD68C;&#xADC0;&#xC758; &#xC798;&#xBABB;&#xB41C; &#xC608;&#xC2DC;](.gitbook/assets/image%20%284%29.png)
 
+![](.gitbook/assets/screen-shot-2021-02-17-at-10.56.55-am.png)
+
+![](.gitbook/assets/screen-shot-2021-02-17-at-10.56.46-am.png)
+
+사진 출처 : sung kim 님의 강의를 캡쳐하였습니다. [https://www.youtube.com/watch?v=6vzchGYEJBc](https://www.youtube.com/watch?v=6vzchGYEJBc)
 
 ## 1. Multiclass classification
 
@@ -10,7 +16,7 @@
 
 ![](.gitbook/assets/screen-shot-2021-02-17-at-10.44.43-am.png)
 
-![](.gitbook/assets/image%20%2811%29.png)
+![](.gitbook/assets/image%20%2813%29.png)
 
 ![](.gitbook/assets/screen-shot-2021-02-17-at-10.45.21-am.png)
 
@@ -33,9 +39,9 @@ KNN 은 예외였으나. supervised learning의 경우 학습이 진행될수록
 
 &lt;-&gt; normalization \(precision, accuracy\)
 
-![L1 Regularization](.gitbook/assets/image%20%284%29.png)
+![L1 Regularization](.gitbook/assets/image%20%286%29.png)
 
-![L2 Regularization](.gitbook/assets/image%20%2812%29.png)
+![L2 Regularization](.gitbook/assets/image%20%2814%29.png)
 
 출처 : [https://light-tree.tistory.com/125](https://light-tree.tistory.com/125) 댓글 없이 가져와서 죄송합니다..
 
@@ -47,7 +53,7 @@ KNN 은 예외였으나. supervised learning의 경우 학습이 진행될수록
 
 "마진이라는 트릭을 통해서 커널링을 활용하는 분류 방법"
 
-![Figure 1, Soft Vector Machine &#xAC1C;&#xB150;&#xB3C4; ](.gitbook/assets/image%20%287%29.png)
+![Figure 1, Soft Vector Machine &#xAC1C;&#xB150;&#xB3C4; ](.gitbook/assets/image%20%289%29.png)
 
 
 
@@ -67,29 +73,29 @@ $$
 
 초평면 위에 있는 벡터 간의 관계를 λ 와 𝑤 로 나타내면,
 
-![](.gitbook/assets/image%20%2810%29.png)
+![](.gitbook/assets/image%20%2812%29.png)
 
-![](.gitbook/assets/image%20%288%29.png)
+![](.gitbook/assets/image%20%2810%29.png)
 
 plus 방향의 평면과 minus 방향의 평면의 margin \(distance\)를 구하면,
 
-![](.gitbook/assets/image%20%289%29.png)
+![](.gitbook/assets/image%20%2811%29.png)
 
 따라서, 문제가 다음과 같이 정의된다.
 
-![](.gitbook/assets/image%20%281%29.png)
+![](.gitbook/assets/image%20%282%29.png)
 
 식을 정리하면, 
 
-![](.gitbook/assets/image%20%2813%29.png)
+![](.gitbook/assets/image%20%2815%29.png)
 
 이제 고등학교 기하때 많이 활용했던 라그랑지 승수법을 적용해본다. 
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%287%29.png)
 
 이 식을 울프쌍대문제에 적용하고. 
 
-![](.gitbook/assets/image%20%283%29.png)
+![](.gitbook/assets/image%20%285%29.png)
 
 KKT조건에 의하면. 
 
@@ -97,7 +103,7 @@ KKT조건에 의하면.
 
 Mercer Theorem에 따라 커널 트릭이 적용 가능하다. 
 
-![Figure 4. &#xCEE4;&#xB110; &#xD2B8;&#xB9AD; &#xC608;&#xC2DC;](.gitbook/assets/image%20%282%29.png)
+![Figure 4. &#xCEE4;&#xB110; &#xD2B8;&#xB9AD; &#xC608;&#xC2DC;](.gitbook/assets/image%20%283%29.png)
 
 출처: [https://ratsgo.github.io/machine%20learning/2017/05/23/SVM/](https://ratsgo.github.io/machine%20learning/2017/05/23/SVM/) 에서 전반적인 설명을 차용하였고. 커널 트릭의 경우  
 [https://www.sallys.space/blog/2018/05/30/svm/](https://www.sallys.space/blog/2018/05/30/svm/) 를 참고하였습니다. 
