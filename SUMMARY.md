@@ -9,5 +9,5 @@
 * [7강 - Experimental Design of Machine Learning Project](7-text-mining-basic-with-regex.md)
 * [8강 - Soft Vector Machine](8-soft-vector-machine.md)
 * [9강 - Text Mining Basics](9-text-mining-basics.md)
-* [10강 - Natural Language Processing and Deep Learning](10-natural-language-processing-and-deep-learning.md)
+* [10강 - Natural Language Processing](10-natural-language-processing-and-deep-learning.md)
 
